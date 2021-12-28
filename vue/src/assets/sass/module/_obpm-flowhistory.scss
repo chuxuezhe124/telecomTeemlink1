@@ -1,0 +1,241 @@
+@charset "utf-8";
+@font-face {font-family: "iconfont";
+    src: url('../../fonts/iconfont-h5.eot');
+    src: url('../../fonts/iconfont-h5.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/iconfont-h5.woff') format('woff'),
+    url('../../fonts/iconfont-h5.ttf') format('truetype'),
+    url('../../fonts/iconfont-h5.svg#iconfont') format('svg');
+  }
+@mixin iconfont-h5{
+    .iconfont-h5 {
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+#workflow-history-panel {
+    background: #ffffff;
+    >.nav-tabs{
+        li {
+            width: 50%;
+            a {
+                color: #92a1ab;
+                margin-right: 0px;
+                border-top: 0px;
+                border-right-color: #ddd;
+                border-radius: 0px;
+                &:hover {
+                    background-color: #fff;
+                }
+                @include iconfont-h5;
+                .iconfont-e061::before {
+                    content: "\e061"; 
+                }
+                .iconfont-e064:before {
+                    content: "\e064";
+                }
+            }
+            &:last-child {
+                border-right: 0px;
+                >a {
+                    border-right: 0px;
+                }
+            }
+        }
+        li.active>a{
+            color: #02bb00;
+            border-left-color: transparent;
+            border-bottom-color: #02bb00;
+            border-top-color: transparent;
+            border-radius: 0px;
+        }
+    }
+    .tab-content{
+        >.tab-pane {
+            overflow: auto;
+            padding: 15px;
+            height: 439px;
+            table {
+                font-size: 12px;
+            }
+            img {
+                width: 100%;
+            }
+            .flowhistory-tab {
+                margin-bottom: 15px;
+                @include iconfont-h5;
+                .iconfont-e062:before {
+                    content: "\e062";
+                }
+                .iconfont-e063:before {
+                    content: "\e063";
+                }
+                .btn-default {
+                    color: #92a1ab;
+                }
+                &:after {
+                    content: "";
+                    display: block;
+                    clear: both;
+                }
+            }
+            #reverse{
+                .reverse-list {
+                    display: -webkit-box;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+                    margin-bottom: 20px;
+                    .reverse-time {
+                        line-height: 50px;
+                        width: 80px;
+                    }
+                    .reverse-face {
+                        padding: 10px;
+                        position: relative;
+                        background-color: #fff;
+                        >img{
+                            width: 36px;
+                        }
+                        .noAvatar {
+                            width: 36px;
+                            color: #fff;
+                            text-align: center;
+                            line-height: 36px;
+                            font-size: 12px;
+                            border-radius: 4px;
+                            background: #428bcb;
+                            height: 36px;
+                            margin: 0px auto;
+                        }
+                        .reverse-face-line {
+                            display: block;
+                            width: 1px;
+                            height: 25px;
+                            border-left: 1px solid #DBDBDB;
+                            position: absolute;
+                            left: 50%;
+                            margin-top: 5px;
+                        }
+                    }
+                    .reverse-content {
+                        flex: 1;
+                        position: relative;
+                        background-color: #f7f7f7;
+                        border-radius: 5px;
+                        padding: 15px;
+                        .icon-ff6600{
+                            color: #ff6600;
+                        }
+                        .icon-10aeff{
+                            color: #10aeff;
+                        }
+                        .icon-f76260{
+                            color: #f76260;
+                        }
+                        .icon-09bb07 {
+                            color: #09bb07;
+                        }
+                        .icon-ffc107{
+                            color: #ffc107;
+                        }
+                        @include iconfont-h5;
+                        .iconfont-e056:before{
+                            content: "\e056";
+                        }
+                        .iconfont-e057:before{
+                            content: "\e057";
+                        }
+                        .iconfont-e058:before{
+                            content: "\e058";
+                        }
+                        .iconfont-e059:before {
+                            content: "\e059";
+                        }
+                        .iconfont-e065:before{
+                            content: "\e065";
+                        }
+                        .reverse-txt {
+                            margin-top: 15px;
+                            position: relative;
+                            .reverse-attitude {
+                                line-height: 20px;
+                                overflow: hidden;
+                                padding-right: 30px;
+                            }
+                            .reverse-attitude-arrow {
+                                padding: 3px 10px;
+                                cursor: pointer;
+                                position: absolute;
+                                bottom: 0px;
+                                right: 0px;
+                            }
+                        }
+                        .reverse-signature{
+                            a {
+                                outline: none;
+                                text-decoration: none;
+                                color: #000;
+                                cursor: pointer;
+                                img {
+                                    width: 100px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #list{
+                table {
+                    font-size: 12px;
+                    td {
+                        vertical-align: middle;
+                        padding: 20px;
+                        a {
+                            outline: none;
+                            text-decoration: none;
+                            color: #000;
+                            cursor: pointer;
+                            img {
+                                width: 50px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        >.active {
+            display: block;
+        }
+    }
+}
+#signatureImage-preview {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1000;
+    overflow: auto;
+    display: none;
+    .signatureImage-panel {
+        height: 425px;
+        text-align: center;
+        display: table;
+        margin: 50px auto 0;
+        box-shadow: 0 0 10px #ddd;
+        width: 50%;
+        background: #fff;
+        .signatureImage-pic {
+            display: table-cell;
+            vertical-align: middle;
+            img {
+                min-width: 50%;
+            }
+        }
+    }
+}

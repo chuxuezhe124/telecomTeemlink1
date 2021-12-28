@@ -1,0 +1,116 @@
+
+//  $back-color:green;
+//  #app{
+//    background-color:$back-color;
+//  }
+
+// @mixin customScrollbar{
+//    background-color: red;
+// }
+
+// @mixin red {
+//    background-color:red;
+//  }
+//  .mixin1 {
+//    @include red();
+//  }
+
+/**
+ * 自定义滚动条
+*/ 
+@mixin customScrollbar {
+   &::-webkit-scrollbar {
+      width:12px;
+      height: 12px;
+   }
+    /* 滚动槽 */
+    &::-webkit-scrollbar-track {
+      box-shadow:inset006pxrgba(0,0,0,0.3);
+      -webkit-box-shadow:inset006pxrgba(0,0,0,0.3);
+      border-radius:10px;
+   }
+    /* 滚动条滑块 */
+   &::-webkit-scrollbar-thumb {
+      border-radius:10px;
+      background:rgba(0,0,0,0.2);
+      box-shadow:inset006pxrgba(0,0,0,0.5);
+      -webkit-box-shadow:inset006pxrgba(0,0,0,0.5);
+   }
+}
+.custom-scrollbar {
+  @include customScrollbar();
+}
+
+/**
+ * 列筛选样式
+*/ 
+@mixin filterBox {
+  position: fixed;
+  width: 120px;
+  height: 220px;
+  box-shadow: 0px 2px 4px #dce4e4;
+  z-index: 10;
+  top: 0px;
+  left: 0;
+  background: #fff;
+  box-shadow: 3px;
+  padding: 10px 8px 10px 8px;
+  box-sizing: border-box;
+  .filter-list {
+    /* 设置滚动条的样式 */
+    display: block;
+    width: 100%;
+    height: 171px;
+    padding: 0;
+    text-align: left;
+    overflow-y: scroll;
+      .input-vertical {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: row;
+        font-weight: normal;
+        cursor:pointer;
+        margin-left:0px;
+      }
+
+    
+  }
+  .filter-list::-webkit-scrollbar {
+    width:12px;
+  }
+  /* 滚动槽 */
+  .filter-list::-webkit-scrollbar-track {
+    box-shadow:inset006pxrgba(0,0,0,0.3);
+    -webkit-box-shadow:inset006pxrgba(0,0,0,0.3);
+    border-radius:10px;
+  }
+  /* 滚动条滑块 */
+  .filter-list::-webkit-scrollbar-thumb {
+    border-radius:10px;
+    background:rgba(0,0,0,0.1);
+    box-shadow:inset006pxrgba(0,0,0,0.5);
+    -webkit-box-shadow:inset006pxrgba(0,0,0,0.5);
+  }
+  .filter-bottom-btn {
+    display: block;
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: normal;
+    border-top: 1px solid #EBEEF5;
+    span {
+      cursor: pointer;
+      margin-right: 8px;
+    }
+  }
+}
+// .filterb-box {
+//    @include filterBox();
+// }
+
+
+
+
+ 

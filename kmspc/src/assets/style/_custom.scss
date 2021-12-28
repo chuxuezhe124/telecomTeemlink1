@@ -1,0 +1,249 @@
+.operation:hover{
+  cursor: pointer;
+}
+.operation .upload-div,
+.operation .onlineEdit{
+  display: inline-block;
+}
+.operation .icon {
+  display: flex;
+}
+.operation .upload-div .load,
+.operation .upload-div .share,
+.operation .upload-div .collect,
+.operation .onlineEdit .edit{
+  display: block;
+  width: 16px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.operation .share-modal, 
+.operation .apply-modal, 
+.operation .load-div, 
+.operation .collect-div, 
+.operation .share-div, 
+.operation .onlineEdit, 
+.operation .historyVersion {
+  float: left;
+  display: inline-block;
+}
+
+.operation .el-dropdown{
+  vertical-align: top;
+  padding-top: 4px;
+}
+
+.load{
+  display: block;
+  width: 16px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: url(../images/load.png) no-repeat center;
+}
+.share {
+  display: block;
+  width: 16px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: url(../images/share.png) no-repeat center;
+}
+.collect {
+  display: block;
+  width: 16px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: url(../images/collect.png) no-repeat center;
+}
+
+.onlineEdit .edit{
+  display: block;
+  width: 16px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: url(../images/edit.png) no-repeat center;
+}
+
+.operation .stageFiledelete-div .stageFiledelete {
+  margin-left: 10px;
+  line-height: 30px;
+  font-size: 18px;
+  color: #f04134;
+}
+
+
+/*16x16*/
+.icon-file{
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  background: url(../images/filetype_icon.png) center no-repeat;
+  background-position: -400px -100px; 
+}
+.icon-file.icon-file-doc,
+.icon-file.icon-file-docx {
+background-position: -100px -300px; }
+
+.icon-file.icon-file-xls,
+.icon-file.icon-file-xlsx {
+background-position: -700px 0px; }
+
+.icon-file.icon-file-pdf {
+background-position: -200px -200px; }
+
+.icon-file.icon-file-rar {
+background-position: -500px -200px; }
+
+.icon-file.icon-file-zip {
+background-position:  -300px -300px; }
+
+.icon-file.icon-file-txt {
+background-position: -600px -200px; }
+
+.icon-file.icon-file-ppt,
+.icon-file.icon-file-pptx {
+background-position: -300px -200px; }
+
+.icon-file.icon-file-html,
+.icon-file.icon-file-htm {
+background-position: -500px 0px; }
+
+.icon-file.icon-file-mov {
+background-position: -900px -200px; }
+
+.icon-file.icon-file-gif,
+.icon-file.icon-file-png,
+.icon-file.icon-file-apng,
+.icon-file.icon-file-bmp,
+.icon-file.icon-file-jpeg,
+.icon-file.icon-file-jpg {
+background-position: -400px -300px; }
+
+.icon-file.icon-file-folder {
+background-position: -800px -100px; }
+
+.icon-file.icon-file-unknown {
+background-position: -400px -100px; }
+
+/**32x32**/
+.icon-file32x32 {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 2em;
+  background: url(../images/filetype_icon.png) center no-repeat;
+
+} 
+
+.icon-file32x32.icon-file-doc,
+.icon-file32x32.icon-file-docx {
+background-position: -100px -700px;
+}
+
+.icon-file32x32.icon-file-xls,
+.icon-file32x32.icon-file-xlsx {
+background-position: -700px -400px;
+}
+
+.icon-file32x32.icon-file-pdf {
+background-position: -200px -600px;
+}
+
+.icon-file32x32.icon-file-rar {
+background-position: -300px -700px; }
+
+.icon-file32x32.icon-file-zip {
+background-position:  -300px -700px; }
+
+.icon-file32x32.icon-file-txt {
+background-position: -600px -600px;
+}
+
+
+.icon-file32x32.icon-file-ppt,
+.icon-file32x32.icon-file-pptx {
+background-position: -300px -600px;
+}
+
+
+.icon-file32x32.icon-file-html,
+.icon-file32x32.icon-file-htm {
+background-position: -500px -400px;
+}
+
+.icon-file32x32.icon-file-gif,
+.icon-file32x32.icon-file-png,
+.icon-file32x32.icon-file-apng,
+.icon-file32x32.icon-file-bmp,
+.icon-file32x32.icon-file-jpeg,
+.icon-file32x32.icon-file-jpg {
+background-position: -400px -700px;
+}
+
+.icon-file32x32.icon-file-unknown {
+background-position: -400px -500px;
+}
+
+.homepage{
+  background-color: #fff;
+  font-size: 14px;
+}
+.paddingTop{
+  padding-top: 50px !important;
+}
+.tabActive{
+  background: #7AADFF !important;
+}
+.paddingTop60{
+  padding-top: 60px !important;
+}
+.card{
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 0.15rem;
+  border: none;
+  .card-body.card-padding {
+    padding: 2.5rem 2.2rem;
+  }
+}
+.cursor {
+  cursor: pointer;
+}
+//自动贴标签的样式
+.paddTop12{
+  padding-top: 12px;
+}
+.category-select{
+  .el-tag + .el-tag {
+    margin-left: 5px;
+  }
+  .button-new-tag {
+    margin-left: 5px;
+    height: 25px;
+    line-height: 25px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .input-new-tag {
+    width: 90px;
+    margin-left: 10px;
+    vertical-align: bottom;
+  }
+}
+
+//自定义样式
+@import "km/admin";
+@import "km/personKm";
+@import "km/dept";
+@import "km/knowledgeMap";
+@import "km/searchFile";
+@import "km/team";
+//个人设置
+@import "km/personal";

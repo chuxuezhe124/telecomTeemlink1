@@ -1,0 +1,400 @@
+<html>
+<head>
+<meta name="renderer" content="webkit">
+<meta content="always" name="referrer">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="utf-8">
+<title>预览</title>
+<link rel="shortcut icon" type="images/x-icon" href="./favicon.ico" media="screen" />
+<link rel="shortcut icon" type="images/x-icon" href="" media="screen" />
+<link type="text/css" href="./normalize.css" rel="stylesheet"/>
+<link type="text/css" href="./preview.css" rel="stylesheet"/>
+<link rel="stylesheet" href="./fonts/awesome/font-awesome.min.css">
+<link type="text/css" href="./js/viewer/viewer.min.css"  rel="stylesheet"/>
+
+<link type="text/css" href="./js/toastr/toastr.css"  rel="stylesheet"/>
+<script type="text/javascript" src="../../office/vender/ntko/officecontrol/ntkobackground.min.js"></script>
+<script src="../../js/jquery-3.3.1.min.js"></script>
+<script src="js/tray.js"></script>
+<script src="../../js/request.config.js"></script>
+
+
+</head>
+<body>
+	<div class="preview-modal">
+		<div class="preview-container">
+			<div class="preview-header">
+				<span class="preview-header-name">
+					<div class="icon-file"></div>
+				</span>
+				<!-- <span style="margin-left: 10%;">大小: </span><span class="fileSize"></span> -->
+				<!-- <span style="margin-left: 10%;">来源: </span><span class="originType"></span> -->
+				<span style="margin-left: 10%;">贡献者: </span><span class="creator"></span>
+				<span class="preview-header-model"><a id="progress" ></a></span>
+				<span class="preview-header-action">
+					<span class="preview-action-cell activity-print" style="display:none;">
+						<button type="button" class="ant-btn ant-btn-ghost components-btn-nobg">
+							<i class="fa fa-print components-icons-print"></i>
+						</button>
+					</span>
+					<span class="preview-action-cell activity-edit">
+						<button type="button" class="ant-btn ant-btn-ghost components-btn-nobg" id="tray-edit">
+							<i class="fa fa-pencil components-icons-edit"></i>
+						</button>
+					</span>
+					<span class="preview-action-cell  activity-share" style="display:none;">
+						<button type="button" title="分享" class="ant-btn ant-btn-ghost components-btn-nobg">
+							
+							<img src="./images/share.png"/>
+						</button>
+					</span>
+					<span class="preview-action-cell" id="ntko-edit">
+						<button type="button"  :title="$t('form.edit')" class="ant-btn ant-btn-ghost components-btn-nobg" id="editFile">
+							<img src="./images/edit.png"/>
+						</button>
+					</span>
+					<!-- <span class="preview-action-cell  activity-download">
+						<button type="button"  title="打印" class="ant-btn ant-btn-ghost components-btn-nobg" id="printFile">
+							<img src="./images/print.png"/>
+						</button>
+					</span> -->
+					<span class="preview-action-cell  activity-download">
+						<button type="button"  title="下载" class="ant-btn ant-btn-ghost components-btn-nobg" id="downloadFile">
+							<img src="./images/load.png"/>
+						</button>
+					</span>
+					<span class="preview-action-cell  activity-collect" style="display: none;">
+						<button type="button" title="收藏" class="ant-btn ant-btn-ghost components-btn-nobg" id="collectFile">
+							<img src="./images/collect.png"/>
+						</button>
+					</span>
+					<span class="preview-action-cell">
+						<button type="button" class="ant-btn ant-btn-ghost components-btn-nobg" title="关闭">
+							<i class="fa fa-times components-icons-close "></i>
+						</button>
+					</span>
+				</span>
+			</div>
+			<div class="preview-body-container">
+				<div class="preview-content">
+					<iframe class="preview-content-iframe" allowFullScreen="true" scrolling="no" style="border: 0; width: 100%; height: 100%;" src="./viewer.html"></iframe>
+					<div class="preview-content-picture" style="display:none">
+						<img src="" />
+					</div>
+					<div class="preview-content-unknown" style="display:none">
+						<div class="preview-content-icon"><i class="fa fa-plane"></i></div>
+						<div class="preview-content-name">该文件无法查看</div>
+					</div>
+				</div>
+				<div class="preview-activity">
+					<div class="preview-activity-header">相关文档</div>
+					<div class="preview-activity-body ">
+						<ul class="preview-activity-list" id="ul">
+							<li class="preview-activity-item" style="display: none;">
+								<span class="knowledgeMap"></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script src="./js/jquery.min.js"></script> 
+<script src="./js/viewer/viewer.min.js"></script>
+<script src="./js/toastr/toastr.min.js"></script>
+<script src="./js/file.js"></script>
+
+
+<script type="text/javascript">
+
+//判断打开类型
+if(openType=="tray"){
+	$("#ntko-edit").hide();
+}else{
+	$("#tray-edit").hide();
+}
+var contextPath="/obpm";
+//获取路径
+var pathName=window.document.location.pathname;
+//截取，得到项目名称
+var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+contextPath = projectName;
+
+var serverHost = location.protocol + '//' + location.host +contextPath;
+var trayHost = "http://127.0.0.1:9001/tray";
+var action;
+var curEditUserId="";
+var name;
+var path;
+var previewUrl;
+
+
+
+//ajax请求获取当前用户
+$.ajax({
+    url:  '../../../kms/users/myprofile',
+    type: 'get',
+    async: false,
+    success: function(data){
+    	curEditUserId=data.data.id
+    }
+})
+
+function combineParams(hash) {
+    let params = {};
+    if(hash){
+        let hashObj = hash.split("&");
+        hashObj.map((e,key) => {
+            let key_val = e.split("=");
+            let key1 = key_val[0];
+            let val1 = key_val[1];
+            params[key1] = val1;
+        })
+    }
+    return params;
+}
+
+function getKnowledgeMapList(params) {
+	var url = "../../files/"+params.fileId+"/knowledgemap";
+	var knowledgeMapList;
+	$.ajax({
+			url: url,
+			async: false,
+			cache:false,
+			success: function(result){
+				knowledgeMapList = result.data;
+			}
+		})
+	return knowledgeMapList;
+}
+
+function getFilePdfPath(params) {
+	var url = "../../disks/"+params.diskId+"/files/"+params.fileId+"/preview";
+	var fullPath = '../../../uploads/kms/';
+	var fileParams;
+	$.ajax({
+			url: url,
+			async: false,
+			cache:false,
+			success: function(result){
+				var commenPath = '../../../uploads/kms/';
+				var path;
+				var data = JSON.parse(result.data);
+				fileParams = data.fileEntity;
+				if(data.pdfFileUrl) {
+					fullPath += data.pdfFileUrl;
+				}else {
+					toastr.options = {
+						"closeButton": false,
+						"debug": false,
+						"positionClass": "toast-top-right",
+						"onclick": null,
+						"showDuration": "3000",
+						"hideDuration": "1000",
+						"timeOut": "1000",
+						"extendedTimeOut": "1000",
+						"showEasing": "swing",
+						"hideEasing": "linear",
+						"showMethod": "fadeIn",
+						"hideMethod": "fadeOut"
+						}
+					toastr.info(data.message);
+				}
+				fileParams.fullPath = fullPath;
+			}
+		})
+		return fileParams;
+}
+
+
+
+
+$(document).ready(function(){
+	var ORIGIN_TYPE_UPLOAD = 1; //上传
+	var ORIGIN_TYPE_SHARED = 2; //分享
+	var fileType = '';
+	var _paramsString = decodeURI(location.hash.substr(1));
+	var params = combineParams(_paramsString);
+
+	//判断是否显示收藏按钮，从收藏目录进来预览的不显示，通过collected为"1"已收藏，"0"未收藏
+	// if(params.collected == "1") {
+	// 	$(".activity-collect").hide();
+	// }
+	var strFullPath=window.document.location.href;  
+    var strPath=window.document.location.pathname;  
+    var pos=strFullPath.indexOf(strPath);  
+    var prePath=strFullPath.substring(0,pos);  
+    var postPath=strPath.substring(0,strPath.substr(1).indexOf('/')+1);  
+    var basePath = prePath;  
+    basePath = prePath + postPath;    
+	var fileParams = getFilePdfPath(params);
+	name = fileParams.id+"."+fileParams.type;
+	path = "/uploads/kms/"+fileParams.url.substring(0,fileParams.url.lastIndexOf("/")+1);
+	var knowledgeMapList = getKnowledgeMapList(params);
+	if(fileParams.type=="doc" || fileParams.type=="docx"){
+		action="edit";
+	}
+	$("title").html(fileParams.name);
+	var $header = $(".preview-header");
+	var $headerName = $(".preview-header").find(".preview-header-name");
+	var $container = $(".preview-body-container");
+	fileParams.type = fileParams.type.toLowerCase();
+	switch(fileParams.type){
+		case "doc":
+		case "docx":
+		case "xls":
+		case "xlsx":
+		case "pdf":
+		case "txt":
+		case "rtf":
+		case "et":
+		case "ppt":
+		case "pptx":
+		case "dps":
+		case "pot":
+		case "pps":
+		case "wps":
+		case "ceb":
+		case "tif":
+		case "html":
+		case "htm":
+			previewUrl = "./viewer.html?file="+fileParams.fullPath+"&fileName="+fileParams.name;
+			$container.find("iframe").attr("src",previewUrl);
+			break;
+		case "jpg":
+		case "jpeg":
+		case "png":
+		case "gif":
+		case "bmp":
+			// _fileType = fileType.substr(1);
+			//$container.find("iframe").attr("src",contextPath+fullPath);
+			var $picture = $container.find(".preview-content-picture");
+			$picture.find("img").attr("src",fileParams.fullPath);
+			$picture.viewer({
+				inline : true,
+				navbar : false
+			});
+			$picture.viewer('show');	
+			$container.find("iframe").hide();		
+			break;	
+		default:
+			_fileType = "unknown";
+			$container.find("iframe").hide();
+			$container.find(".preview-content-icon");
+			$container.find(".preview-content-name");
+			$container.find(".preview-content-unknown").show();
+			break;
+	}
+	
+	$headerName.find(">.icon-file").addClass("icon-file-"+fileParams.type);
+	$headerName.append(fileParams.name);
+
+	//显示关闭按钮
+	$(".components-icons-close").on("click",function(){
+			window.close();
+		})
+
+	//显示文档属性
+	var originTypeString="";
+	$(".preview-activity-list").find(".fileName").text(fileParams.name);
+	//$(".fileSize").text(fileParams.size+"k");
+	//if(fileParams.originType == ORIGIN_TYPE_UPLOAD) {
+	//	originTypeString = "上传";
+	//}else if(fileParams.originType == ORIGIN_TYPE_SHARED) {
+	//	originTypeString = "分享";
+	//}
+	//$(".originType").text(originTypeString);
+	$(".creator").text(fileParams.creator);
+	
+	var ul = document.getElementById("ul");
+	if(knowledgeMapList!=undefined){
+		for (var i=0;i<knowledgeMapList.length;i++){
+			var li = document.createElement("li");
+			var span = document.createElement("span");
+			var a = document.createElement("a");
+			var node = document.createTextNode(knowledgeMapList[i].title);
+		    a.appendChild(node);
+			var url = knowledgeMapList[i].url;
+		    var leftUrl = url.substring(0,url.lastIndexOf("/"));
+		    var rightUrl = url.substring(url.lastIndexOf("/")+1,url.lastIndexOf("."));
+		    a.target="view_window";
+		    a.href = basePath+"/uploads/kms/"+leftUrl+"/PDF/"+rightUrl+".pdf";
+		    span.appendChild(a);
+			span.className="knowledgeMap"+i;
+			li.appendChild(span);
+			li.className="preview-activity-item";
+			ul.appendChild(li);
+			//$(".preview-activity-list").find(".knowledgeMap"+i).text(knowledgeMapList[i].title);
+		}	
+	}
+	
+
+	//下载文件
+	$("#downloadFile").click(function(){
+		var params = {
+			"fileId":fileParams.id
+		}
+		handleSingleFileDownload(params);
+
+	});
+	
+	//打印文件
+	$("#printFile").click(function(){
+		window.print();
+	});
+	
+	//编辑文件
+	$("#editFile").click(function(){
+		var cmd = 2;
+		var id = fileParams.id;
+		var url = fileParams.url;
+		var name = fileParams.name;
+		var folderId = fileParams.folderId;
+		var ntkoed=ntkoBrowser.ExtensionInstalled();
+
+		//用户信息
+		var userId;
+		var userName;
+		//ajax请求获取当前用户
+		$.ajax({
+            url:  '../../../kms/users/myprofile',
+            type: 'get',
+            async: false,
+            success: function(data){
+                userId=data.data.id;
+                userName=data.data.name;
+            }
+        })
+		//获取路径
+		 var pathName=window.document.location.pathname;
+		//截取，得到项目名称
+		 var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+		 if(ntkoed){
+			 
+		 ntkoBrowser.openWindow(projectName+"/kms/office/vender/ntko/editDocument.html?cmd=" + 2+"&id="+id+"&url="+url+"&folderId="+folderId+"&userId="+userId+"&userName="+encodeURI(userName));
+		 //window.open(projectName+"/kms/office/vender/ntko/editDocument2.html?cmd=" + 2+"&id="+id+"&url="+url+"&folderId="+folderId+"&userId="+userId+"&userName="+userName); 
+			if (cmd==3)
+				{CLOSEVENT = true;}
+			else
+				{CLOSEVENT = false;}
+		 }else{
+		 var iTop = ntkoBrowser.NtkoiTop();   //获得窗口的垂直位置;
+	     var iLeft = ntkoBrowser.NtkoiLeft();        //获得窗口的水平位置;
+		 window.open(projectName+"/kms/office/vender/ntko/exeindex.html","","height=200px,width=500px,top="+iTop+"px,left="+iLeft+"px,titlebar=no,toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no");
+		 }
+	});
+
+	//收藏文件
+	$("#collectFile").click(function(){
+		handleFileCollect(params);
+
+	});
+	//关闭网页
+
+	
+});
+</script>
+
+</html>

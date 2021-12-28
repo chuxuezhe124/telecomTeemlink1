@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    list-style: none;
+}
+body {
+    background: #f6f7fb;
+    font-size: 14px;
+    font-family: "Helvetica Neue","Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei","sans-serif","PingHei", "Lucida Grande", "Helvetica","Arial","Verdana";
+}
+img, iframe {
+    border: 0;
+}
+img {
+    vertical-align: middle;
+}
+.logo, .top_menu .layui-nav-item[pc], .component, .top_menu .layui-nav-item[mobile], .layui-nav, .layui-layout-admin .layui-main, .site-mobile .layui-side, .layui-layout-admin .layui-side, .site-mobile .site-tree-mobile, .layui-body, .layui-layout-admin .layui-footer, .layui-layout-admin .layui-side, .panel, .panel .panel_icon i {
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+}
+a {
+    outline: none;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+dl{
+    margin-bottom: 0;
+}

@@ -1,0 +1,244 @@
+@media print {
+    .form-print-wrap {
+      width: 100%;
+      overflow: hidden;
+      #form-print {
+        width: 100%;
+        height: 100%;
+        .formcontent {
+          width: 100%;
+          height: 100%;
+          .formTable-wrap {
+            width: 100%;
+            height: 100%;
+            width:100%;
+            .view-listview-print {
+              #viewTable {
+                width:100%;
+                margin: 0 auto;
+                border-collapse: collapse;
+                border-spacing: 0;
+                td{
+                  box-sizing: border-box;
+                  border: 1px solid rgb(180, 204, 238);
+                  padding: 1px;
+                  padding-left: 3px;
+                  font-size: 12px;
+                  display:table-cell; 
+                  vertical-align:middle
+                  .content-box {
+                    word-wrap: break-word;
+                    word-break: break-all;
+                    span {
+                      display: inline-block;
+                      font-size: 12px;
+                      line-height: 1.428571429;
+                      -webkit-transform-origin-x: 0;
+                      transform: scale(0.9);
+                      // .font-print-size {
+                      //   display: inline-block;
+                      //   font-size: 12px;
+                      //   -webkit-transform-origin-x: 0;
+                      //   transform: scale(0.9);
+                      // }
+                    }
+                  }
+                }
+              }
+            }
+            .form-template-wrap > table td[title~='SVNNO:'] {
+              display: none;
+            }
+          }
+        }
+      }
+      #form-print_0 {
+        display: none;
+      }
+    }         
+    .no-print {
+      display:none;
+    }
+}
+
+//显示时，非打印
+.form-print-wrap {
+  width: 100%;
+  height: calc(100% - 50px);
+  position: relative;
+  .custom-sign-wrap {
+    .img-item {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      z-index: 999;
+      img {
+        max-width: 100px;
+        max-height: 100px;
+        cursor: move;
+      }
+    }
+  }
+  .formwrapper {
+    border: 1px solid #eee;
+    overflow: auto;
+    border-radius: 6px;
+    .formcontent {
+      width: 100%;
+      height: 100%;
+      .formTable-wrap {
+        width: 100%;
+        height: 100%;
+        width:100%;
+        // table {
+        //   transform: scale(0.9);
+        // }
+        .view-listview-print {
+          #viewTable {
+            width:100%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border-spacing: 0;
+            
+            thead {
+              td {
+                min-width:60px; 
+                border: 1px solid rgb(180, 204, 238);
+                font-size:13px;
+                font-weight:bold;
+                padding: 1px;
+                padding-left: 3px;
+                box-sizing: border-box;
+                font-size: 12px;
+              }
+            }
+            tbody {
+              td{
+                box-sizing: border-box;
+                border: 1px solid rgb(180, 204, 238);
+                padding: 1px;
+                padding-left: 3px;
+                // transform: scale(0.9);
+                .content-box {
+                  word-wrap: break-word;
+                  word-break: break-all;
+                  span {
+                    display: inline-block;
+                    font-size: 12px;
+                    line-height: 1.428571429;
+                    vertical-align: top;
+                    .font-print-size {
+                    //   display: inline-block;
+                    //   font-size: 12px;
+                    //   -webkit-transform-origin-x: 0;
+                    //   transform: scale(0.9);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .form-template-wrap > table td[title~='SVNNO:'] {
+          display: none;
+        }
+      }
+      .formTable-wrap td {
+        padding: 1px;
+        padding-left: 3px;
+        box-sizing: border-box;
+        .input-control {
+          display: inline-block;
+        }
+      }
+    }
+  }
+  #form-print {
+    box-sizing: border-box;
+    width:100%;
+    padding: 0 20px 20px 20px;
+    background: #fff;
+    box-sizing: border-box;
+    .print-wrap {
+      display: block;
+      height: 90%;
+      table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        border-spacing: 0;
+        td{
+          padding: 2px;
+        }
+      }
+    }
+  }
+  .print-btn {
+    height: 50px;
+    bottom: 10px;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-end;
+    background: #fff;
+    position: fixed;
+    right: 0;
+    .page-con {
+      width: 100%;
+      height: 50px;
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-right: 10px;
+      .btn {
+        margin-right: 10px;
+        width: 60px;
+        height: 35px;
+        text-align: center;
+        line-height: 29px;
+        border: 1px solid red;
+        background: rgb(91, 192, 222);
+        border-color: rgb(91, 192, 222);
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.myapps-iframe-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  box-shadow: 0px 2px 4px #dce4e4;
+  background: rgba(255, 255, 255, 1);
+  .formwrapper {
+    height: 100%;
+    border: 1px solid #eee;
+    overflow: auto;
+    border-radius: 6px;
+    .formTable-wrap {
+      width: 100%;
+      overflow: auto;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      height: calc(100% - 56px);
+      .formHtml {
+        table-layout: fixed;
+        margin: 0px auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 96%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        td {
+          padding: 10px 8px;
+        }
+      }
+    }
+  }
+  
+}
+
+
+
+ 

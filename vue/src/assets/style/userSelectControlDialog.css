@@ -1,0 +1,684 @@
+.user-select-control-dialog .el-dialog {
+  position: relative;
+  margin: 0 auto 50px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+.user-select-control-dialog .el-dialog .el-dialog__header {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  padding: 0 10px 0 10px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 40px;
+  background: -webkit-gradient(linear, right top, left top, from(#57c59f), to(#4e74f2));
+  background: linear-gradient(270deg, #57c59f 0%, #4e74f2 100%);
+}
+
+.user-select-control-dialog .el-dialog .el-dialog__header .el-dialog__title {
+  line-height: 40px;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.user-select-control-dialog .el-dialog .el-dialog__header .el-dialog__headerbtn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  padding: 0;
+  background: 0 0;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.user-select-control-dialog .el-dialog .el-dialog__header .el-dialog__headerbtn .el-dialog__close {
+  color: #FFF;
+}
+
+.user-select-control-dialog .el-dialog .el-dialog__body {
+  padding: 0;
+  color: #606266;
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.user-select-control-dialog .el-dialog .el-dialog__footer {
+  padding: 0 0 10px 10px;
+  text-align: right;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.user-select-control-dialog .el-dialog .user-container {
+  width: 100%;
+  height: 380px;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-title-list {
+  width: 100%;
+  height: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-title-list span {
+  display: inline-block;
+  height: 22px;
+  line-height: 22px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: #5A6779;
+  cursor: pointer;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-title-list .tabActive {
+  width: 60px;
+  height: 22px;
+  background: #7190f5;
+  border-radius: 2px;
+  color: #fff;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-title-list .search-box {
+  width: 230px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-title-list .search-box .el-input__inner {
+  -webkit-appearance: none;
+  background-color: #FFF;
+  background-image: none;
+  border-radius: 0px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border: 1px solid #dddddd;
+  border-right-color: #4e74f2;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #606266;
+  display: inline-block;
+  font-size: inherit;
+  height: 30px;
+  line-height: 30px;
+  outline: 0;
+  padding: 0 15px;
+  -webkit-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 100%;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-title-list .search-box .el-input-group__append, .user-select-control-dialog .el-dialog .user-container .tab-title-list .search-box .el-input-group__prepend {
+  background-color: #4e74f2;
+  color: #fff;
+  vertical-align: middle;
+  display: table-cell;
+  position: relative;
+  border: 0px solid #4e74f2;
+  border-radius: 0px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  padding: 0px 13px;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container {
+  height: 340px;
+  width: 100%;
+  padding: 10px 20px 8px 20px;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box {
+  width: 100%;
+  height: 100%;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact {
+  width: 100%;
+  height: 310px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact .left {
+  width: 30%;
+  margin-right: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #f2f2f2;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact .left .top-title {
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  color: #5A6779;
+  background: #F2F2F2;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact .left .scrollbar {
+  height: 288px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact .left .scrollbar .dept-tree {
+  padding-top: 10px;
+  height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow: auto;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact .left .scrollbar .dept-tree .flow-tree .el-tree-node__expand-icon {
+  position: absolute;
+  right: 2%;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact .left .scrollbar .dept-tree .flow-tree .el-tree-node__label {
+  padding-left: 15px;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact .left .scrollbar .dept-tree .flow-tree .custom-tree-node i {
+  color: #4E74F2;
+  margin-right: 10px;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact .left .scrollbar .dept-tree .flow-tree .custom-tree-node .fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact .left .el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact .left .all-contact {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  background: #fafafa;
+  border-bottom: 1px solid #f2f2f2;
+  cursor: pointer;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .contact .left .all-contact .icon-img {
+  width: 8px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .role {
+  width: 100%;
+  min-height: 310px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .role .role-left {
+  width: 30%;
+  height: 310px;
+  border: 1px solid #f2f2f2;
+  margin-right: 15px;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .role .role-left .top-title {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  color: #5A6779;
+  background: #F2F2F2;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .role .role-left .scrollbar {
+  height: 288px;
+  width: 100%;
+  overflow-x: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .role .role-left .scrollbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .role .role-left .scrollbar ul > li {
+  height: 40px;
+  line-height: 35px;
+  padding-left: 10px;
+  border-bottom: 1px solid #f2f2f2;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .role .role-left .scrollbar ul > li .icon-img {
+  width: 8px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .role .role-left .el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box {
+  width: 100%;
+  min-height: 310px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .left {
+  width: 65%;
+  height: 310px;
+  border: 1px solid #f2f2f2;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .left .top-title {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  color: #5A6779;
+  background: #F2F2F2;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .left .scrollbar {
+  height: 280px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .left .scrollbar .list-box {
+  width: 100%;
+  padding: 10px 10px 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .left .el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .center {
+  height: 100%;
+  line-height: 310px;
+  width: 25px;
+  text-align: center;
+  font-size: 25px;
+  color: #ccc;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .right {
+  width: 30%;
+  border: 1px solid red;
+  width: 30%;
+  border: 1px solid #f2f2f2;
+  height: 310px;
+  overflow: auto;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .right .add-all-data {
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .right .add-all-data span {
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  width: 49px;
+  height: 22px;
+  line-height: 22px;
+  background: white;
+  border-radius: 2px;
+  background-color: #f56c6c;
+  color: #fff;
+  cursor: pointer;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .right .scrollbar {
+  height: 278px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .right .scrollbar .tag-lists {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .right .scrollbar .tag-lists .tag {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .right .el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .recent-box .right .group-num {
+  width: 100%;
+  height: 30px;
+  border-top: 1px solid #ccc;
+  font-size: 12px;
+  display: -webkit-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page {
+  width: 34%;
+  border: 1px solid #f2f2f2;
+  height: 310px;
+  overflow: auto;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page .user-list {
+  width: 100%;
+  height: calc(100% - 36px);
+  overflow: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page .user-list .add-all-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page .user-list .add-all-data span {
+  width: 100px;
+  height: 22px;
+  background: white;
+  border-radius: 2px;
+  border: 1px solid #dddddd;
+  color: #5A6779;
+  font-size: 12px;
+  display: inline-block;
+  line-height: 21px;
+  text-align: center;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page .user-list .current-role {
+  text-align: center;
+  line-height: 30px;
+  height: 30px;
+  background: #fafafa;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page .user-list .scrollbar {
+  height: 208px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page .user-list .scrollbar .list-box {
+  width: 100%;
+  padding: 10px 10px 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page .user-list .el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page .btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.428571429;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 36px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page .btn .el-pagination {
+  white-space: nowrap;
+  padding: 0;
+  color: #303133;
+  font-weight: 700;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page .btn .el-pagination button, .user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .role-page .btn .el-pagination span:not([class*=suffix]) {
+  display: inline-block;
+  font-size: 12px;
+  min-width: 30.5px;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .selected-role {
+  border: 1px solid red;
+  width: 30%;
+  border: 1px solid #f2f2f2;
+  height: 310px;
+  overflow: auto;
+  margin-left: 15px;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .selected-role .add-all-data {
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .selected-role .add-all-data span {
+  font-size: 12px;
+  text-align: center;
+  display: inline-block;
+  width: 49px;
+  height: 22px;
+  line-height: 22px;
+  background: white;
+  border-radius: 2px;
+  background-color: #f56c6c;
+  color: #fff;
+  cursor: pointer;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .selected-role .scrollbar {
+  height: 278px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .selected-role .scrollbar .tag-lists {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .selected-role .scrollbar .tag-lists .tag {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .selected-role .el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tab-container-box .user-common .selected-role .group-num {
+  width: 100%;
+  height: 30px;
+  border-top: 1px solid #ccc;
+  font-size: 12px;
+  display: -webkit-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tabBoxBlock {
+  display: block;
+}
+
+.user-select-control-dialog .el-dialog .user-container .tab-container .tabBoxNone {
+  display: none;
+}
+
+.user-select-control-dialog .el-dialog .dialog-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 20px;
+}
+/*# sourceMappingURL=userSelectControlDialog.css.map */

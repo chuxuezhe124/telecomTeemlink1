@@ -1,0 +1,72 @@
+.main_meter {
+  width: 100%;
+  height: 100%;
+  .meter-header {
+    width: 100%;
+    height: 55px;
+    border-bottom: 1px solid #2A91DA;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    -webkit-box-shadow: 0 0px 3px #909090;/* for safari or chrome */
+    box-shadow:0 0px 3px #909090;/* for opera or ie9 */
+    &>div {
+      margin-left: 15px;
+      color:#a7a7a7;
+      font-weight: bold;
+      .common {
+        width: 130px;
+      }
+      .common-time {
+        width: 145px;
+      }
+      .left-name {
+        margin-right: 5px;
+      }
+      
+    }
+    .select {
+      width: 230px;
+      height: 100%;
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+      .right-name {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        width: 70px;
+        color: white;
+        text-align: center;
+        background:#22aae9;
+        border-top-right-radius:4px;
+        border-bottom-right-radius:4px;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  .meter-container {
+    width: 100%;
+    height: calc(100% - 55px);
+    .scrollbar {
+      width:100%;
+      height: 100%;
+      overflow-x: hidden;
+      .meter-wrap {
+        width: 100%;
+      }
+      .view-table {
+        margin-top: 30px;
+        border-top: 1px solid #ccc;
+      }
+    }
+    .el-scrollbar__wrap {
+      overflow-x: hidden;
+    }
+  }
+  
+  
+
+}

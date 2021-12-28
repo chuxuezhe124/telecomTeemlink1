@@ -1,0 +1,92 @@
+/*
+定制样式变量
+*/
+$width : auto;
+$marginR:4px;
+
+@mixin form{
+    @extend .form-control;
+}
+
+@mixin group{
+    @extend .input-group-addon;
+}
+@mixin glyphicons{
+    @extend .glyphicon;
+}
+@mixin radio{
+    @extend .radio-inline;
+}
+@mixin btn{
+    @extend .btn;
+    @extend .btn-default;
+}
+@mixin btn1{
+    @extend .btn;
+}
+@mixin default{
+    @extend .btn-default;
+}
+@mixin success{
+    @extend .btn-success;
+}
+@mixin warning{
+    @extend .btn-warning;
+}
+@mixin info{
+    @extend .btn-info;
+}
+@mixin danger{
+    @extend .btn-danger;
+}
+@mixin primary{
+    @extend .btn-primary;
+}
+@mixin table{
+    @extend .table;
+}
+@mixin table-bordered{
+    @extend .table-bordered;
+}
+@mixin textarea{
+    @extend textarea;
+}
+@import "../lib/boostrap/stylesheets/bootstrap/_mixins.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_variables.scss";
+
+/*
+组件样式引入
+*/
+
+@import "../lib/boostrap/stylesheets/bootstrap/_forms.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_input-groups.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_glyphicons.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_buttons.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_tables.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_normalize.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_navbar.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_navs.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_badges.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_type.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_grid.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_dropdowns.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_component-animations.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_button-groups.scss";
+@import "../lib/boostrap/stylesheets/bootstrap/_code.scss";
+
+/*
+字体图标
+*/
+@import "../lib/font-awesome-sass/stylesheets/font-awesome-compass.scss";
+@import "../lib/font-awesome-sass/stylesheets/font-awesome.scss";
+
+@import "../common/_common.scss";
+@import "./tpl/_obpm-formFiel.scss";
+@import "./_obpm-font-icon.scss";
+@import "./_obpm-form.scss";
+@import "./_obpm-homepage.scss";
+@import "./_obpm-view.scss";
+@import "./_obpm-index.scss";
+@import "./_obpm-flowcenter.scss";
+@import "./_obpm-selectFile.scss";
+@import "./_obpm-flowhistory.scss";

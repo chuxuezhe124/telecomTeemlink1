@@ -1,0 +1,308 @@
+@charset "utf-8";
+//obpm.activity 高级控件按钮,按钮模板
+.queryBtnicon{
+    @extend .fa;
+    @extend .fa-list;
+}
+.createBtnicon{
+    @extend .fa;
+    @extend .fa-file-o;
+}
+.deleteBtnicon{
+    @extend .fa;
+    @extend .fa-trash-o;
+}
+
+.saveStarticon{
+    @extend .fa;
+    @extend .fa-play-circle-o;
+}
+
+.regressesflowicon{
+    @extend .fa;
+    @extend .fa-reply-all;
+}
+
+.submitflowicon{
+    @extend .fa;
+    @extend .fa-clock-o;
+}
+
+.closeWindowBtnicon{
+    @extend .fa;
+    @extend .fa-close;
+}
+
+.suspendicon{
+    @extend .fa;
+    @extend .fa-pause;
+}
+
+.recoveryicon{
+    @extend .fa;
+    @extend .fa-play;
+}
+
+.retracementicon{
+    @extend .fa;
+    @extend .fa-reply-all;
+}
+.terminationicon{
+    @extend .fa;
+    @extend .fa-stop;
+}
+.remindericon{
+    @extend .fa;
+    @extend .fa-fire;
+}
+.backBtnicon{
+    @extend .fa;
+    @extend .fa-arrow-circle-o-left;
+}
+.saveBackBtnicon{
+    @extend .fa;
+    @extend .fa-reply;
+}
+.noneBtnicon{
+    @extend .fa;
+    @extend .fa-cog;
+}
+.htmlPrintBtnicon{
+    @extend .fa;
+    @extend .fa-print;
+}
+.htmlPrintWithHisBtnicon{
+    @extend .fa;
+    @extend .fa-print;
+}
+.exportToExcelBtnicon{
+    @extend .fa;
+    @extend .fa-sign-out;
+}
+.clearAllBtnicon{
+    @extend .fa;
+    @extend .fa-eraser;
+}
+.saveWithoutValidateBtnicon{
+    @extend .fa;
+    @extend .fa-check-circle-o;
+}
+.batchApproveBtnicon{
+    @extend .fa;
+    @extend .fa-send-o;
+}
+.saveCopyBtnicon{
+    @extend .fa;
+    @extend .fa-clone;
+}
+.exportToPdfBtnicon{
+    @extend .fa;
+    @extend .fa-sign-out;
+}
+.fileDownloadBtnicon{
+    @extend .fa;
+    @extend .fa-download;
+}
+.excelImportBtnicon{
+    @extend .fa;
+    @extend .fa-sign-in;
+}
+.signatureBtnicon{
+    @extend .fa;
+    @extend .fa-globe;
+}
+
+.batchSignatureBtnicon{
+    @extend .fa;
+    @extend .fa-globe;
+}
+.startWorkflowicon{
+    @extend .fa;
+    @extend .fa-user-plus;
+}
+.saveBtnicon{
+    @extend .fa;
+    @extend .fa-save;
+}
+.printViewBtnicon{
+    @extend .fa;
+    @extend .fa-print;
+}
+.transpondBtnicon{
+    @extend .fa;
+    @extend .fa-share-alt;
+}
+.saveNewBtnicon{
+    @extend .fa;
+    @extend .fa-plus;
+}
+.jumpToBtnicon{
+    @extend .fa;
+    @extend .fa-share-square-o;
+}
+.flowByUser{
+    @extend .fa;
+    @extend .fa-wrench;
+}
+// flowpanel-tmpl
+.commonopinionsicon{
+    @extend .fa;
+    @extend .fa-sort-desc;
+}
+//o-tab
+.tabCollapsedown{
+    @extend .fa;
+    @extend .fa-angle-down;
+}
+.tabCollapseright{
+    @extend .fa;
+    @extend .fa-angle-right;
+}
+.tabCollapseup{
+    @extend .fa;
+    @extend .fa-angle-up;
+}
+//processCenter-tmpl
+.processCenterMenuicon{
+    @extend .fa;
+    @extend .fa-th-large;
+}
+//treeview
+.treeviewRighticon{
+    @extend .fa;
+    @extend .fa-chevron-right;
+}
+//searchicon
+.searchicon{
+    @extend .fa;
+    @extend .fa-search;
+}
+//excelimport
+.importSurfaceicon{
+    @extend .fa;
+    @extend .fa-sign-in;
+}
+//flowhistory
+.flowOperationicon{
+    @extend .fa;
+    @extend .fa-hand-o-right;
+}
+.reverseAttitudeArrowicon{
+    @extend .fa;
+    @extend .fa-chevron-down;
+}
+//startFlow
+.startflowlisticon{
+    @extend .fa;
+    @extend .fa-list;
+}
+.startflowlargeicon{
+    @extend .fa;
+    @extend .fa-th-large;
+}
+//fileUpload
+.fileUploadicon{
+    @extend .fa;
+    @extend .fa-arrow-down;
+}
+.filedeleteicon{
+    @extend .fa;
+    @extend .fa-trash;
+}
+//main
+.infocentericon{
+    @extend .fa;
+    @extend .fa-bell-o;
+}
+.personalInformationicon{
+    @extend .fa;
+    @extend .fa-address-card-o;
+}
+.dropOuticon{
+    @extend .fa;
+    @extend .fa-power-off;
+}
+.systemManagicon{
+    @extend .fa;
+    @extend .fa-cog;
+}
+.softwareicon{
+    @extend .fa;
+    @extend .fa-folder-open;
+}
+.moreicon{
+    @extend .fa;
+    @extend .fa-plus-square;
+}
+//index
+.lockScreenicon{
+    @extend .fa;
+    @extend .fa-lock;
+}
+.flowcentericon{
+    @extend .fa;
+    @extend .fa-sitemap;
+}
+.homeicon{
+    @extend .fa;
+    @extend .fa-home;
+}
+// obpm.collapseview.js
+.openicon{
+    @extend .fa;
+    @extend .fa-plus-square-o;
+}
+.collapseicon{
+    @extend .fa;
+    @extend .fa-minus-square-o;
+}
+//obpm.main.js
+.releaseNewsicon{
+    @extend .fa;
+    @extend .fa-pencil;
+}
+.releaseNoticeicon{
+    @extend .fa;
+    @extend .fa-volume-up;
+}
+.replyMessage{
+    @extend .fa;
+    @extend .fa-comments;
+}
+//workflow.js
+.flowstateicon{
+    @extend .fa;
+    @extend .fa-angle-double-down;
+}
+.flowSubmiticon{
+    @extend .fa;
+    @extend .fa-minus-square;
+}
+//dashboard
+.calendaricon{
+    @extend .fa;
+    @extend .fa-calendar;
+}
+//form
+.formFlowstateicon{
+    @extend .fa;
+    @extend .fa-chevron-down;
+}
+//calendarview
+.upperDataicon{
+    @extend .fa;
+    @extend .fa-chevron-left;
+}
+.lowerDataicon{
+    @extend .fa;
+    @extend .fa-chevron-right;
+}
+// homepage
+.arrowUpicon{
+    @extend .fa;
+    @extend .fa-chevron-up;
+}
+.arrowDownicon{
+    @extend .fa;
+    @extend .fa-chevron-down;
+}

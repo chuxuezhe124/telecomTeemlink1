@@ -1,0 +1,81 @@
+
+.departmentKm{
+  display:flex;
+  background: #fff;
+  .treeSearch{
+    margin-top: 70px;
+    margin-left: 5px;
+    .search{
+    width: 150px;
+    padding: auto;
+    margin-left: 10px;
+    }
+    .depkmTree{
+      padding: 10px 0;
+      font-size: 24px;
+      margin: 6px 0;
+    }
+  }
+}
+.deptKm{
+  flex:6;
+  // background: #fff;
+  padding: 0 16px;
+  .dept-header{
+    .el-menu-demo{
+      border-bottom: 0px;
+    }
+  }
+  .dept-body{
+    display: flex;
+    margin-top: 16px;
+    .dept-content{
+      .toolbar{
+        .handle,.batch,.search,.uploader{
+          display: inline-block;
+        }
+        .batch,.uploader{
+          margin-left: 10px;
+        }
+        .search{
+          float: right;
+          width: 200px;
+        }
+      }
+      .showMessage{
+        margin-bottom: 8px;
+        margin-top: 8px;
+        overflow: hidden;
+        .breadcrumbMenu{
+          float: left;
+          .is-link:hover{
+            cursor: pointer;
+          }
+        }
+        .viewsAndDownloads{
+          float: right;
+          .downloads{
+            margin: 0 10px;
+          }
+          .deptAdmin{
+            max-width: 220px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    .tableDiv{
+      .label-category{
+        display: flex;
+        .add-label-category{
+          margin-right: 8px;
+        }
+        .add-label-category:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

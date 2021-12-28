@@ -1,0 +1,936 @@
+/*
+  流程提交面板
+*/
+.flow-panel-wrap {
+  position: relative;
+  .flow-wrap {
+    width:100%;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    .refer {
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      width:49%;
+      min-height:160px;
+      max-height: 300px;
+      .refer-left {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        font-family: Source Han Sans CN;
+        height: 21px;
+        // color: #333333;
+        color: #409EFF;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        span {
+          margin-left: 7px;
+          font-weight: bold;  
+          display:table-cell; /*按照单元格的样式显示元素*/
+          vertical-align:bottom; 
+        }
+      }
+      .t-box {
+        width:100%;
+        height:200px;
+        border: 1px solid #ccc;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        border-radius: 3px;
+        .sug-left {
+          background: #f4f6f6;
+          width:84px;
+          height: 198px;
+          line-height: 198px;
+          text-align: center;
+          color: black;
+          
+        }
+        .idea-textbox {
+          width:calc(100% - 84px);
+          padding: 30px;
+          box-sizing: border-box;
+          .idea-box {
+            .el-textarea__inner {
+              display: block;
+              resize: vertical;
+              padding: 0 0;
+              line-height: 1.5;
+              -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              width: 100%;
+              font-size: inherit;
+              color: #606266;
+              background-color: #FFF;
+              background-image: none;
+              //border: 1px solid #DCDFE6;
+              border: 0px;
+              border-radius: 4px;
+              -webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+              transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+            }
+          }
+    
+        }
+      }
+      .refer-right {
+        .el-checkbox{
+          color: #999999;
+        }
+        width:100%;
+        // height:137px;
+        height:167px;
+        background: #F9F9F9;
+        border-radius: 6px;
+        margin-top:1px;
+        .scrollbar {
+          height: 100%; 
+          width:100%;
+          overflow-x: hidden;
+          //自由流程
+          .free-flow {
+            padding:20px;
+            box-sizing: border-box;
+            .list-right {
+              .add {
+                cursor: pointer;
+                text-align: center;
+                line-height: 18px;
+                width:24px;
+                height: 24px;
+                border: 2px solid #46d2db;
+                font-size: 24px;
+                color: #46d2db;
+                //font-weight: bold;
+              }
+            }
+          }
+          .refer-radio{
+            display: -webkit-flex;
+            display: flex;
+            padding: 10px;
+            height: 100%;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+            .refer-radio-node {
+              display: inline-block;
+              width: 75px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+            .refer-radio-group {
+              display: inline-block;
+              box-sizing: border-box;
+              margin-bottom: 10px;
+              .el-radio-group {
+                line-height: 1;
+                vertical-align: middle;
+                flex-direction: column;
+                .el-radio {
+                  color: #999999;
+                  cursor: pointer;
+                  height: 24px;
+                  .check-input-box {
+                    position: relative;
+                    display: inline-block;
+                    height: 30px;
+                    width: 148px;
+                    padding-left: 10px;
+                    box-sizing: border-box;
+                    .check-input {
+                      width:135px;
+                      margin-right: 10px;
+                      color: #999999;
+                      .el-input {
+                        position: relative;
+                        font-size: 14px;
+                        display: inline-block;
+                        width:135px;
+                        .el-input__inner {
+                          -webkit-appearance: none;
+                          background-color: #FFF;
+                          background-image: none;
+                          border-radius: 4px;
+                          border: 1px solid #DCDFE6;
+                          -webkit-box-sizing: border-box;
+                          box-sizing: border-box;
+                          color: #606266;
+                          display: inline-block;
+                          font-size: 12px;
+                          height: 24px;
+                          line-height: 24px;
+                          outline: 0;
+                          padding: 0 10px;
+                          padding-right: 23px;
+                          -webkit-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                          transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                          width: 135px;
+                        }
+                      }
+                    }
+                    .icon-peo {
+                      position: absolute;
+                      left:126px;
+                      top: 3px;
+                      cursor: pointer;
+                      i {
+                        color: #BBBBBB;
+                        font-size:13px;
+                      }
+                    }
+                  }
+                  
+                }
+              }
+            }
+            .check-input-wrap {
+              width: 260px;
+              /* display: inline-block; */
+              /* height: 30px; */
+              position: relative;
+              line-height: 31px;
+              .check-input-box {
+                position: absolute;
+                top: -5px;
+                left: 28px;
+                display: inline-block;
+                height: 30px;
+                width: 185px;
+                .check-input {
+                  width:135px;
+                  margin-right: 10px;
+                  color: #999999;
+                  .el-input {
+                    position: relative;
+                    font-size: 14px;
+                    display: inline-block;
+                    width:135px;
+                    .el-input__inner {
+                      -webkit-appearance: none;
+                      background-color: #FFF;
+                      background-image: none;
+                      border-radius: 4px;
+                      border: 1px solid #DCDFE6;
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      color: #606266;
+                      display: inline-block;
+                      font-size: 12px;
+                      height: 24px;
+                      line-height: 24px;
+                      outline: 0;
+                      padding: 0 10px;
+                      padding-right: 23px;
+                      -webkit-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                      transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                      width: 135px;
+                    }
+                  }
+                }
+                .icon-peo {
+                  position: absolute;
+                  left:152px;
+                  cursor: pointer;
+                  i {
+                    color: #BBBBBB;
+                    font-size:13px;
+                  }
+                }
+              }
+              
+            }
+          }
+          .refer-check {
+            display: -webkit-flex;
+            display: flex;
+            padding:20px;
+            height: 100%;
+            box-sizing: border-box;
+            // flex-wrap: wrap;
+            .refer-radio-group {
+              // .refer-radio-node {
+              //   display: inline-block;
+              //   width: 75px;
+              //   text-overflow: ellipsis;
+              //   white-space: nowrap;
+              //   overflow: hidden;
+              // }
+              .el-checkbox {
+                margin-bottom: 10px;
+                margin-right: 5px;
+              }
+              margin-right: 10px;
+              .check-input-box {
+                position: relative;
+                display: inline-block;
+                height: 30px;
+                width: 148px;
+                padding-left: 10px;
+                box-sizing: border-box;
+                .check-input {
+                  width:135px;
+                  margin-right: 10px;
+                  color: #999999;
+                  .el-input {
+                    position: relative;
+                    font-size: 14px;
+                    display: inline-block;
+                    width:135px;
+                    .el-input__inner {
+                      -webkit-appearance: none;
+                      background-color: #FFF;
+                      background-image: none;
+                      border-radius: 4px;
+                      border: 1px solid #DCDFE6;
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      color: #606266;
+                      display: inline-block;
+                      font-size: 12px;
+                      height: 24px;
+                      line-height: 24px;
+                      outline: 0;
+                      padding: 0 10px;
+                      padding-right: 23px;
+                      -webkit-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                      transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                      width: 135px;
+                    }
+                  }
+                }
+                .icon-peo {
+                  position: absolute;
+                  left:126px;
+                  top: 1px;
+                  cursor: pointer;
+                  i {
+                    color: #BBBBBB;
+                    font-size:13px;
+                  }
+                }
+              }
+              .el-checkbox__input.is-disabled .el-checkbox__inner {
+                background-color: #edf2fc;
+                border-color: #dcdfe6;
+                cursor: not-allowed;
+                display: inline-block; //选中不可用时，得有这样式，不然复选框不可见
+              }
+            }
+            
+            .check-input-wrap {
+              width: 260px;
+              display: inline-block;
+              height: 30px;
+              position: relative;
+              margin-top: 3px;
+              .check-input-box {
+                position: absolute;
+                top: -8px;
+                left: 28px;
+                display: inline-block;
+                height: 30px;
+                width: 185px;
+                .check-input {
+                  width:135px;
+                  margin-right: 10px;
+                  color: #999999;
+                  .el-input {
+                    position: relative;
+                    font-size: 14px;
+                    display: inline-block;
+                    width:135px;
+                    .el-input__inner {
+                      -webkit-appearance: none;
+                      background-color: #FFF;
+                      background-image: none;
+                      border-radius: 4px;
+                      border: 1px solid #DCDFE6;
+                      -webkit-box-sizing: border-box;
+                      box-sizing: border-box;
+                      color: #606266;
+                      display: inline-block;
+                      font-size: 12px;
+                      height: 24px;
+                      line-height: 24px;
+                      outline: 0;
+                      padding: 0 10px;
+                      padding-right: 23px;
+                      -webkit-transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                      transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+                      width: 135px;
+                    }
+                  }
+                }
+                .icon-peo {
+                  position: absolute;
+                  left:152px;
+                  cursor: pointer;
+                  i {
+                    color: #BBBBBB;
+                    font-size:13px;
+                  }
+                }
+              }
+              
+            }
+          }
+  
+        }
+        .el-scrollbar__wrap {
+          overflow-x: hidden;
+        }
+      }
+      .refer-right-comm {
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: auto;
+      }
+    }
+  
+    //正常时显示的样子
+    .idea {
+      height:160px;
+    }
+    //手签时的样子
+    .bigIdea {
+      height:343px;
+      animation: change 1s;
+      -moz-animation: change 1s;    
+      -webkit-animation: change 1s;    
+      -o-animation: change 1s;
+    }
+    @keyframes change{
+      from {
+        height: 195px;
+      }
+      to {
+        height: 360px;
+      }
+    }
+  
+    //盒子idea的共同样式
+    .common-idea {
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      width:49%;
+      .idea-left {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        font-family: Source Han Sans CN;
+        font-weight: bold;
+        // color: #333333;
+        color: #409EFF;
+        height: 21px;
+        img {
+          float: left;
+          margin-right: 7px;
+        }
+        span {
+          font-weight: bold;  
+          display:table-cell; /*按照单元格的样式显示元素*/
+          vertical-align:bottom; 
+        }
+      }
+  
+      //启动流程的右边
+      .idea-right-submission-process {
+        margin-top: 1px;
+        width:100%;
+        min-height:167px;
+        padding:5px 0 0px 0;
+        box-sizing: border-box;
+        border-radius: 4px;
+        overflow: hidden;
+        color: #b7b5b5;
+      }
+      .idea-right {
+        margin-top: 1px;
+        width:100%;
+        min-height:167px;
+        padding:10px 20px 0px 20px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        overflow: hidden;
+        background: #F9F9F9;
+        border-radius: 6px;
+        .idea-use {
+          position: relative;
+          width:100%;
+          display: -webkit-flex;
+          display: flex;
+          justify-content: flex-end;
+          .use-tip {
+            cursor: pointer;
+            font-size: 15px;
+            font-family: Source Han Sans CN;
+            font-weight: 400;
+            color: #409EFF;
+            i {
+              font-weight: bold;
+            }
+          }
+          .use-suggest {
+            // position: absolute;
+            position: fixed;
+            top:260px;
+            right:30px;
+            width: 160px;
+            min-height: 156px;
+            border:1px solid #cdd4d4;
+            border-radius: 4px;
+            background: white;
+            z-index: 1000;
+            .sug-data {
+              width:100%;
+              height:105px;
+              overflow:auto;
+              .data-row {
+                cursor: pointer;
+                color:black;
+                width:100%;
+                padding-left: 5px;
+                display: -webkit-flex;
+                display: flex;
+                justify-content: space-between;
+                box-sizing: border-box;
+                .opinion-content {
+                  display: inline-block;
+                  height:30px;
+                  line-height: 30px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+                .is-edit {
+                  width: calc(100% - 50px);
+                }
+                .no-edit {
+                  width: 100%
+                }
+                .icon {
+                  display: inline-block;
+                  height:30px;
+                  line-height: 30px;
+                  margin-right: 5px;
+                  &>i {
+                    margin-left:10px;
+                  }
+                  &>i:nth-child(1) {
+                    color:red;
+                  }
+                  &>i:nth-child(2) {
+                    color:black;
+                  }
+                }
+              }
+              .data-row:hover {
+                background: #46d2db;
+                color:white;
+              }
+              .data-row:hover .icon>i{
+                background: #46d2db;
+                color:white;
+              }
+            }
+            .sug-btn {
+              width:100%;
+              display: -webkit-flex;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding:10px 6px 10px 6px;
+              
+              .btns {
+                width:100%;
+                display: -webkit-flex;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                &>span {
+                  display: block;
+                  width:100%;
+                  height:30px;
+                  line-height: 30px;
+                  text-align: center;
+                  margin-bottom: 8px;
+                  cursor: pointer;
+                  border-radius: 3px;
+                }
+                &>span:nth-child(1) {
+                  border:1px solid #0074de;
+                  color:#3792e5;
+                }
+                &>span:nth-child(2) {
+                  border:1px solid #cdd4d4;
+                
+                }
+              }
+              
+            }
+            .sug-new {
+                
+                width:100%;
+                padding:10px 6px 10px 6px;
+                display: -webkit-flex;
+                display: flex;
+                flex-direction: column;
+                align-items:center;
+                .new-input {
+                  width:140px;
+                  input {
+                    width:100%;
+                    padding:3px;
+                  }
+                }
+                .keep-cancel{
+                  width:100%;
+                  display: -webkit-flex;
+                  display: flex;
+                  justify-content: flex-end;;
+                  padding:10px 0 10px 6px;
+                  &>span {
+                    display: inline-block;
+                    margin-right: 10px;
+                    cursor: pointer;
+                  }
+                  &>span:nth-child(1) {
+                    color:#c2c2c2
+                  }
+                  &>span:nth-child(2) {
+                    color:#76c797;
+                  }
+                }
+              }
+          }
+        }
+        .idea-textbox {
+          margin-top:10px;
+          width:100%;
+          .idea-box {
+            .el-textarea__inner {
+              display: block;
+              resize: vertical;
+              padding: 0 0;
+              line-height: 1.5;
+              height:84px;
+              -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              width: 100%;
+              font-size: inherit;
+              color: #606266;
+              background-color: #F9F9F9;
+              background-image: none;
+              //border: 1px solid #DCDFE6;
+              border: 0px;
+              border-radius: 4px;
+              -webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+              transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+            }
+            .el-input__count {
+              color: #909399;
+              background: #F9F9F9;
+              position: absolute;
+              font-size: 12px;
+              bottom: 5px;
+              right: 10px;
+            }
+          }
+        }
+        .idea-opinion {
+          margin-top:16px;
+          width:100%;
+          height:25px;
+          span:first-child{
+            color: #409EFF;
+            font-size: 12px;
+          }
+          .dash-line {
+            width: calc(100% - 100px);
+            height: 3px;
+            border-top: 1px dashed #DDE2E2;
+            // border-bottom: 1px dashed #DDE2E2;
+            display: inline-block;
+            vertical-align: bottom;
+          }
+          .sug-btn {
+            width: 81px;
+            display: inline-block;
+            cursor: pointer;
+            // margin-left:10px;
+            color: #409EFF;
+            text-align: right;
+            i {
+              font-weight: bold;
+            }
+          }
+        }
+        .idea-canvas {
+          position: relative;
+          width:100%;
+          height:125px;
+          .canvas {
+            // border: 1px solid pink;
+          }
+        }
+        .idea-clear {
+          width:100%;
+          display: -webkit-flex;
+          display: flex;
+          justify-content: flex-end;
+          position: relative;
+          .btn{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+          }
+        }
+      }
+    }
+  }
+  
+  .footer-btn {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-end;
+    width:100%;
+    height:40px;
+    align-items: center;
+    justify-content: center;
+    &>div {
+      .flowpanel-btn {
+        display: inline-block;
+        width: 120px;
+        height: 36px;
+        background: linear-gradient(90deg, #40D0FF 0%, #409EFF 100%);
+        border-radius: 18px;
+        color: #FFF;
+        line-height: 36px;
+        text-align: center;
+        font-size: 17px;
+        box-shadow: 2px 2px 6px 0px #b7daff;
+        cursor: pointer;
+      }
+    }
+    .pack-up {
+      font-size: 15px;
+      color: #F2842C;
+      margin-left: 24px;
+      cursor: pointer;
+    }
+    // &>div {
+    //   position: absolute;
+    //   bottom:-50px;
+    // }
+  }
+  
+  /*
+    终止流程面板
+  */
+  .termination{
+    .t-box {
+      width:100%;
+      height:200px;
+      border: 1px solid #ccc;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: row;
+      border-radius: 3px;
+      .sug-left {
+        background: #f4f6f6;
+        width:84px;
+        height: 198px;
+        line-height: 198px;
+        text-align: center;
+        color: black;
+        
+      }
+      .idea-textbox {
+        width:calc(100% - 84px);
+        padding: 30px;
+        box-sizing: border-box;
+        .idea-box {
+          .el-textarea__inner {
+            display: block;
+            resize: vertical;
+            padding: 0 0;
+            line-height: 1.5;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 100%;
+            font-size: inherit;
+            color: #606266;
+            background-color: #FFF;
+            background-image: none;
+            //border: 1px solid #DCDFE6;
+            border: 0px;
+            border-radius: 4px;
+            -webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+            transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+          }
+          
+        }
+      }
+    }
+    .foot-btns {
+      width: 100%;
+      height: 40px;
+      margin-top: 20px;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: flex-end;
+    }
+    
+  }
+  
+  
+  /*
+    通过邮件或者手机短信分享的弹窗
+  */
+  .send-mail-wrap {
+    width: 100%;
+    height: 200px;
+    padding-left: 50px;
+    padding-right: 50px;
+    .content {
+      width: 100%;
+      height: 100%;
+    }
+    .select-wrap {
+      width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 20px;
+      .left {
+        display: inline-block;
+        width: calc(100% - 88px);
+      }
+      .right {
+        display: inline-block;
+        display: -webkit-flex;
+        display: flex;
+        border: 1px solid #dce4e4;
+        padding: 6px;
+        margin-left: 10px;
+        cursor: pointer;
+        border-radius: 2px;
+      }
+    }
+    .send-btn {
+      margin-top: 90px;
+      width: 100%;
+      display: -webkit-flex;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
+  /*
+    加签主办（协办）
+  */
+  .process-host {
+    width:100%;
+    height: 100%;
+     //加签列表
+     .add-list {
+      width:100%;
+      height:100%;
+      .list-wrap {
+          width:100%;
+          height: calc(100% - 40px);
+          margin-top:10px;
+          background: white;
+          position: relative;
+          .title {
+            margin:0 auto;
+            width:95%;
+            height:40px;
+            line-height: 40px;
+            display: flex;
+            flex-direction: row;
+            background: #dde2e2;
+            border-radius: 3px;
+            &>span {
+                width:50%;
+                padding-left:15px;
+                font-size: 14px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                &>span {
+                    display: inline-block;
+                    width:30%;
+                    height:16px;
+                    &>img {
+                        width:16px;
+                        height:100%;
+                    }
+                }
+            }
+          }
+          .list-content{
+              height: calc(100% - 40px);
+              overflow: auto;
+              .list {
+                margin:0 auto;
+                width:95%;
+                height:40px;
+                line-height: 40px;
+                display: flex;
+                flex-direction: row;
+                background: white;
+                border-bottom: 1px solid #e2e2e2;
+                &>span {
+                    width:50%;
+                    padding-left:15px;
+                    font-size: 14px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    &>span {
+                        display: inline-block;
+                        width:30%;
+                        height:16px;
+                        &>img {
+                            width:16px;
+                            height:100%;
+                        }
+                    }
+                }
+            }
+          }
+  
+         
+      }
+      .btn-bar {
+        width: 100%;
+        display: -webkit-flex;
+        display: flex;
+        justify-content: center;
+        height: 40px;
+        line-height: 40px;
+      }
+  }
+  
+  }
+  
+  .mask {
+    width: calc(100% - 240px);
+    height: calc(100% - 110px);
+    background-color:rgba(0,0,0,0);
+    position: fixed;
+    top: 110px;
+    left: 240px;
+  }
+}

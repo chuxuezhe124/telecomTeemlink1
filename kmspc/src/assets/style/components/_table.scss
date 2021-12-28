@@ -1,0 +1,48 @@
+.tableDiv{
+  .el-table{
+    .cell{
+      .floder-name:hover,
+      .file-name:hover{
+        cursor: pointer;
+      }
+      .edit-folder{
+        .el-input{
+          display: inline-block;
+          width: 60%;
+        }
+        .el-icon-check, .el-icon-close{
+          display: inline-block;
+          padding: 0px 6px;
+          margin: 0px 2px 0px 5px;
+          height: 26px;
+          border: 1px solid #d9d9d9;
+          position: relative;
+          top: 1px;
+          line-height: 26px;
+        }
+        .el-icon-check:hover, .el-icon-close:hover{
+          cursor: pointer;
+        }
+      }
+      .edit-files{
+        .el-input{
+          display: inline-block;
+          width: 60%;
+        }
+        .el-icon-check, .el-icon-close{
+          display: inline-block;
+          padding: 0px 6px;
+          margin: 0px 2px 0px 5px;
+          height: 26px;
+          border: 1px solid #d9d9d9;
+          position: relative;
+          top: 1px;
+          line-height: 26px;
+        }
+        .el-icon-check:hover, .el-icon-close:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

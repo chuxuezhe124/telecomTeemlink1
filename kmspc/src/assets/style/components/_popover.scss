@@ -1,0 +1,14 @@
+.el-popover{
+  min-width: 32px;
+  max-width: 100px;
+  .popover{
+    width: 100px;
+    div{
+      padding: 4px;
+    }
+    a:hover{
+      cursor: pointer;
+      color: #409EFF;
+    }
+  }
+}

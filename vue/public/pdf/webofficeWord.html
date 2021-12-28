@@ -1,0 +1,380 @@
+<html>
+
+<head>
+<title>在线打开/保存Word文档</title>
+<meta name="renderer" content="webkit" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+    html, body
+    {
+        height: 100%;
+		margin: 0;
+
+    }
+	.select-template{
+		color: white;
+		border: 1px solid #fff;
+		width: 132px;
+		height: 28px;
+		background-color: #6FA5F6;
+	}
+    .login-button { /* 按钮美化 */
+		padding: 0 8px;
+    	width: 70px;
+		height: 32px; /* 高度 */
+		line-height: 32px;
+		border-width: 0px; /* 边框宽度 */
+		border-radius: 3px; /* 边框半径 */
+		background: #6FA5F6; /* 背景颜色 */
+		cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+		outline: none; /* 不显示轮廓线 */
+		font-family: Microsoft YaHei; /* 设置字体 */
+		color: white; /* 字体颜色 */
+		border: 1px solid #fff;
+		font-size: 12px; /* 字体大小 */
+	}
+	.login-button:hover { /* 鼠标移入按钮范围时改变颜色 */
+		background: #5599FF;
+	}
+</style>
+
+<!-- <script src="../js/require.min.js"></script>
+<script src="../js/require.config.js"></script> -->
+<!-- <script type="text/javascript" src="../js/lib/jquery-1.11.3.min.js"></script> -->
+<script src="../iwebapp/pdfjs/js/require.min.js"></script>
+<script src="../iwebapp/pdfjs/require.config.js"></script>
+<script type="text/javascript" src="../iwebapp/pdfjs/jquery-1.11.3.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+/**
+ * @desc 获取url参数
+ * @param {String} name  想要获取的参数名字
+ */
+function GetQueryString(name){
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  decodeURI(r[2]); return null;
+}
+
+	var pathName = window.document.location.origin;
+	var ServerUrl = pathName+contextPath;
+	var name = GetQueryString("name");
+	//	var path = "/uploads/doc/201910/";
+	var path = GetQueryString("path");
+	var username = GetQueryString("username");
+	var tempfile = GetQueryString("tempfile");
+	if(path.indexOf(".")>=0){
+		  name = path.substring(path.lastIndexOf("/")+1,path.length);
+		  path = path.substring(0, path.lastIndexOf("/")+1);
+	}
+	var filepath = path+name;
+	//回调参数
+	var closeDialogParams = GetQueryString("closeDialogParams");
+	
+	var jsonstr = GetQueryString("jsonstr");
+	var fileType;
+</script>
+<script src="./word/WebOffice.js"></script>
+
+<script type="text/javascript">
+	var WebOfficeObj = new WebOffice2015(); //创建WebOffice对象
+	  // 金格MultiPart方式在线打开文档
+	function Load(){
+			try
+			{
+			WebOfficeObj.ServerUrl = ServerUrl;
+			WebOfficeObj.UserName = username;
+	      	WebOfficeObj.FileName = name;
+	    	if(name){
+	    		fileType = name.substr(name.lastIndexOf(".")).toLowerCase();
+	    	}
+		    WebOfficeObj.FileType = fileType;             //FileType:文档类型  .doc  .xls
+		    WebOfficeObj.ShowWindow = true;				//true显示进度条//false隐藏进度条
+		    WebOfficeObj.obj.Style.ShowOpenProgress = true; //开启、关闭打开文档时的进度条
+		    WebOfficeObj.obj.WebCreateProcess();          //创建空进程避免打开慢
+		    WebOfficeObj.EditType = "1";				//设置加载文档类型 0 锁定文档，1无痕迹模式，2带痕迹模式
+		    WebOfficeObj.ShowMenu = 0;
+		    WebOfficeObj.ShowToolBar = 0;
+			
+		    SetYellowSkin1();			//设置控件皮肤
+			  if(WebOfficeObj.WebOpen2("/tray/service/download.action?path="+path+"&name="+name))
+			  {
+			  	StatusMsg(WebOfficeObj.Status);
+			  }
+			}
+			catch(e){
+ 	     	StatusMsg(e.description);
+ 	    }
+	}
+		
+	//保存文档
+	function SaveDocument()
+	{
+		WebOfficeObj.FileName = name;
+		WebOfficeObj.FileType = fileType;
+
+	  if (WebOfficeObj.WebSave()){    //交互OfficeServer的OPTION="SAVEFILE"
+		//checkin();
+		WebOfficeObj.WebClose();
+		localStorage.checkIsEdit = true;
+		window.close();
+		//OBPM.dialog.doReturn();
+		}else{
+			WebOfficeObj.Alert(WebOfficeObj.Status);
+			StatusMsg(WebOfficeObj.Status);
+		}
+	}
+	//作用：设置活动文档对象
+	function SetActiveDocument(){
+		var varObj = null;
+		if(WebOfficeObj != null && WebOfficeObj.obj.ActiveDocument != null)
+		{
+			var  varApp = WebOfficeObj.obj.ActiveDocument.Application;
+			var varComAddIns = null;
+			var varAddin = null;
+			var varOffice360Addin = "iSignatureOffice360.AddIn";
+			var varOffice360Obj = null;
+			if(varApp)
+			{
+				varComAddIns = varApp.COMAddIns;
+			}
+			if(varComAddIns)
+			{
+				for(var i = 1;i <=varComAddIns.Count;i++)
+				{
+					varAddin = varComAddIns.Item(i);
+					if(varOffice360Addin == varAddin.ProgId)
+					{
+						varOffice360Obj = varAddin.Object;
+						break;
+					}
+				}
+				if(varOffice360Obj)
+				{
+					try
+					  {
+						varObj = varOffice360Obj.GetInterfaceForWeb("iSignatureOffice360.API");
+					  }
+					  catch(err)
+					  {
+						  txt="There was an error on this page.\n\n";
+						  txt+="Error description: " + err.message + "\n\n";
+						  txt+="Click OK to continue.\n\n";
+						  alert(txt);
+					  }
+				}
+			}
+		}
+		return varObj;
+	}
+
+	/**
+	 * 签章
+	 */
+	function ActionDo(CmdId) {
+		var SignatureAPI360 = SetActiveDocument();
+		try{
+			SignatureAPI360.Action_Do(CmdId);
+		} catch(e){
+			alert("请先安装签章客户端！");
+		}
+
+	}
+
+	//设置页面中的状态值
+	 function StatusMsg(mValue) {
+	  try {
+		  document.getElementById('StatusBar').value = mValue;
+	  } catch (e) {
+		  return false;
+	  }
+	 }
+
+
+
+	//  function doChangeBooks() {
+	//  	//jsonstr 文件字 年度 文件号 成文日期 公开方式 抄送单位 印发日期
+	//  	WebOfficeObj.WebSetBookmarks("文件字",GetQueryString("PETE_fileWord"));
+	//  	WebOfficeObj.WebSetBookmarks("年度",GetQueryString("PETE_year"));
+	//  	WebOfficeObj.WebSetBookmarks("文件号",GetQueryString("PETE_fileNumber"));
+	//  	//WebOfficeObj.WebSetBookmarks("成文日期","");
+	//  	WebOfficeObj.WebSetBookmarks("公开方式",GetQueryString("PETE_gkfs"));
+	//  	WebOfficeObj.WebSetBookmarks("抄送单位",GetQueryString("PETE_cs"));
+	//  	WebOfficeObj.WebSetBookmarks("签发人",GetQueryString("PETE_qfr"));
+	//  	WebOfficeObj.WebSetBookmarks("印发日期",GetQueryString("PETE_qftime"));
+
+	//  }
+
+
+	//模板套红
+	function WebUseTemplate(){
+		var fileName=$("#selectID").val();
+		if(fileName){
+			WebOfficeObj.Template = fileName;  //套红模板名称
+			WebOfficeObj.WebUseTemplate();
+			StatusMsg(WebOfficeObj.Status);
+			//setTimeout(doChangeBooks, 3000);
+		}
+	}
+
+	//烟枪灰皮肤
+	function SetGraySkin(){
+		//参数顺序依次为：控件标题栏颜色、自定义菜单开始颜色、自定义工具栏按钮开始颜色、自定义工具栏按钮结束颜色、
+		//自定义工具栏按钮边框颜色、自定义工具栏开始颜色、控件标题栏文本颜色（默认值为：0x000000）
+		if (!WebOfficeObj.WebSetSkin(0xdbdbdb, 0xeaeaea, 0xeaeaea, 0xdbdbdb, 0xdbdbdb, 0xdbdbdb, 0x000000))
+			WebOfficeObj.Alert(WebOfficeObj.Status);
+	}
+
+	//柠檬黄皮肤
+	function SetYellowSkin1(){
+		//参数顺序依次为：控件标题栏颜色、自定义菜单开始颜色、自定义工具栏按钮开始颜色、自定义工具栏按钮结束颜色、
+		//自定义工具栏按钮边框颜色、自定义工具栏开始颜色、控件标题栏文本颜色（默认值为：0x000000）
+		if (!WebOfficeObj.WebSetSkin(0x00baff, 0xb7effd, 0xb7effd, 0xb7effd, 0xb7effd, 0x5edffe, 0x000000))
+			WebOfficeObj.Alert(WebOfficeObj.Status);
+	}
+
+	//隐藏/显示痕迹
+	function ShowRevision(Boolean){
+	if (Boolean){
+		WebOfficeObj.WebSetRevision(true,true,true,false);
+		 StatusMsg("显示痕迹...");
+	  }else{
+		WebOfficeObj.WebSetRevision(false,true,true,false);
+		 StatusMsg("隐藏痕迹...");
+	  }
+	}
+
+	function OnUnLoad(){
+		WebOfficeObj.WebClose();
+	}
+
+	function  checkin(){
+		//获取cookie中的closeDialogParams
+		if(closeDialogParams!=""){
+			jQuery.ajax({
+				type : 'get',
+				async : false,
+				dataType : 'text',
+				url : contextPath +'/runtime/attachmenthistory/checkIn',
+				data : closeDialogParams ,
+				success : function(result) {
+					debugger
+
+				}
+			});
+		}
+	}
+	function intoTemp(){
+		$.ajax({
+			type : 'get',
+			async : false,
+			url : kmsContextPath +'/office/service/getTempFile',
+			beforeSend: function(request) {
+				if(accessToken){
+					request.setRequestHeader("accessToken",accessToken);
+				}
+			},
+			dataType : 'json',
+			success : function(result) {
+				if(result && result.errcode == 0){
+					var data=result.data;
+					for(var i=0;i<data.length;i++){
+						var fileMap = data[i];
+						var html = '<option value="'+fileMap.filePath+'" >'+fileMap.name+'</option>'
+						$("#selectID").find("option:last").after(html);
+					}
+
+
+					// var files = eval(JSON.parse(result).data);
+					// if(tempfile == "undefined" || tempfile == null){
+					// 	for(var i in files){
+					// 		var html = '<option value="'+JSON.parse(files[i].item_file)[0].path+'" >'+files[i].item_name+'</option>'
+					// 		$("#selectID").find("option:last").after(html);
+					// 	}
+					// }else{
+					// 	for(var i in files){
+					// 		if(tempfile==files[i].item_name){
+					// 			var html = '<option value="'+JSON.parse(files[i].item_file)[0].path+'" >'+files[i].item_name+'</option>'
+					// 			$("#selectID").find("option:last").after(html);
+					// 		}
+					// 	}
+					// }
+				}
+			}
+		});
+	}
+	function doDownLoadMSI(){
+		var msiPath = contextPath + "/uploads/iWebOffice2015.msi"
+		window.open(msiPath);
+	}
+		
+</script>
+
+<script language="javascript" for="WebOffice" event="OnReady()">
+   WebOfficeObj.setObj(document.getElementById('WebOffice'));//给2015对象赋值
+   Load();//避免页面加载完，控件还没有加载情况
+</script>
+
+<!--以下是多浏览器的事件方法 -->
+<script type="text/javascript">
+function OnReady(){
+ WebOfficeObj.setObj(document.getElementById('WebOffice'));//给2015对象赋值
+ //Load();//避免页面加载完，控件还没有加载情况
+ setTimeout(function(){Load();}, 500);
+}
+</script>
+
+</head>
+<body onUnload="OnUnLoad();" onbeforeunload="OnUnLoad();">
+	<div style="width: 100%; height: 100%">
+		<div style="width: 100%; height: 60px; line-height: 60px; background-color: #6FA5F6;">
+			<!-- URL地址打开文档，WebOpen2的参数是文件在服务器上的相对路径 -->
+            <span style="padding-left: 8px; color: #fff; font-size: 14px;">模板选择</span>
+            <select onchange="return jumpPage()" id="selectID" class="select-template">
+			   <option value="" selected="selected" >公告模板 选中示例</option>
+            </select>
+    		<input class="login-button" type=button value="套模板" onclick="WebUseTemplate();">
+			<input class="login-button" type=button value="显示痕迹" onclick="ShowRevision(true)">
+			<input class="login-button" type=button value="隐藏痕迹" onclick="ShowRevision(false)">
+			<input class="login-button" type=button value="保存文档" onclick="SaveDocument();">
+			<!--<input class="login-button" type=button value="签章" onclick="ActionDo(0);">-->
+
+			<div style="float: right; margin-right: 8px; font-size: 14px;">
+				<input style="color:Red;border:0px;text-align: right;" id="StatusBar" type="text" name="StatusBar" readonly  style="WIDTH:40%">&nbsp;|←状态信息
+				<input class="login-button" style="width: 100px;" type=button value="下载iweboffice" onclick="doDownLoadMSI()">
+				<input class="login-button" type=button value="下载wps" onclick="window.open('https://www.wps.cn/');">
+				<input class="login-button" style="width: 100px;" type=button value="下载签章客户端" onclick="window.open('http://www.kinggrid.com/uploadsfile/files/download/iSignature_V9.0.0.9304_CA3%E7%89%88_%E9%87%91%E6%A0%BC%E4%BA%91%E7%AD%BE%E7%AB%A0%E5%B9%B3%E5%8F%B0_%E5%AE%A2%E6%88%B7%E8%AF%95%E7%94%A8_Update_20181227.zip');">
+			</div>
+			
+		</div>
+		<div id="OfficeDiv" style="width: 100%; height: 98%;" ><script src="./word/iWebOffice2015.js"></script></div>
+	</div>
+</body>
+<script type="text/javascript">
+$(function(){
+	
+	intoTemp();
+	function beforeloadResult () {
+		$("#OfficeDiv").show();
+	}
+	// 关闭窗口时弹出确认提示
+	$(window).bind('beforeunload', function(){
+		// 只有在标识变量is_confirm不为false时，才弹出确认提示
+		if(window.is_confirm !== false){
+			$("#OfficeDiv").hide();
+			setTimeout(beforeloadResult, 200);
+			localStorage.checkIsEdit = true;
+			return "您可能有数据没有保存!";
+		}
+	})
+	// mouseleave mouseover事件也可以注册在body、外层容器等元素上
+	.bind('mouseover mouseleave', function(event){
+		is_confirm = event.type == 'mouseleave';
+	});
+	//setTimeout(doChangeBooks, 3000);
+})
+</script>
+</html>

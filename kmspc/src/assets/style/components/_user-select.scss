@@ -1,0 +1,80 @@
+.userdialog{
+  .user-select{
+    .filter-tree{
+      height: 336px; 
+      overflow-y: auto;
+    }
+    .modal-user-data-list{
+      height: 300px; 
+      overflow-y: auto;
+      overflow-x: hidden;
+      .modal-user-checkbox{
+        .el-checkbox__input{
+          vertical-align: super;
+        }
+      }
+      .user-name{
+        vertical-align: super;
+        margin-left: 8px;
+      }
+      .d-block{
+        display: block;
+      }
+    }
+    .modal-user-data-list-title{
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #ccc;
+      .delect-user-name{
+        font-size: 20px;
+        vertical-align: top;
+        cursor: pointer;
+        color: #ccc;
+        float: right;
+      }
+      .delect-user-name:hover{
+        color: #409EFF;
+      }
+      .modal-user-data-list-show{
+        cursor: pointer;
+        float: right;
+      }
+    }
+    .modal-user-select-panel-list{
+      height: 300px; 
+      overflow-y: auto;
+      overflow-x: hidden;
+      .modal-user-select-panel{
+        .modal-user-select-item{
+          white-space: nowrap;
+          line-height: 30px;
+          display: block;
+          .modal-user-avatar{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            float: left;
+            margin-right: 8px;
+          }
+          .modal-user-select-name{
+            display: inline-block;
+            width: 110px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+          .close-user-name{
+            font-size: 20px;
+            vertical-align: top;
+            cursor: pointer;
+            color: #ccc;
+            margin-top: 4px;
+          }
+          .close-user-name:hover{
+            color: #409EFF;
+          }
+        }
+      }
+    }
+  }
+}

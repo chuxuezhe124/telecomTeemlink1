@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+/*
+    基础色调
+*/
+$color-tuatara:#333636;         //主要文字
+$color-storm-pust:#606262;      //常规文字
+$color-mountain-mist:#909595;   //次要文字
+$color-silver-sand:#c0c5c5;     //占位符
+$color-light-word:#fff;
+$color-conch:#cdd4d4;           //一级边框/背景色
+$color-bon-jour:#dde2e2;        //二级边框/背景色
+$color-gallery:#eaefef;         //三级边框/背景色
+$color-black-haze:#f4f6f6;      //四级边框/背景色
+
+$color-shark:#22262e;
+$color-outer-space:#30343e;
+$color-ship-gray:#383d48;
+$color-bluish-green:#18b8c2;
+$color-turquoise:#46d2db;
+
+
+/**
+*main 色调
+*/
+$myapp-nav-basics: $color-outer-space;
+$app-bar-light-word:$color-light-word;  //顶部左边导航高亮文字颜色
+$app-bar-basics-word:$color-silver-sand; //顶部左边导航基础文字颜色
+$other-software-light-word:$color-turquoise;//顶部左边隐藏导航高亮背景色
+$softwarelist-lignt-bg:$color-turquoise;//更多软件hover背景色
+$center-nav-word:$color-light-word;    //顶部右边导航文字颜色
+$nav-bar-class-bg:$color-outer-space;  //右边菜单背景色
+$nav-bar-classa-bg:$color-outer-space; //右边一级菜单背景色
+$nav-bar-classb-bg:$color-shark;       //右边二级菜单背景色
+$nav-bar-classc-bg:$color-shark;       //右边三级菜单背景色
+$myapp-basics-word:$color-storm-pust;  //常规文字颜色
+$myapp-light-word:$color-silver-sand;   //点击高亮文字颜色
+$regular-use-bg:$color-storm-pust;      //常用软件背景色
+$regular-use-basics-word:$color-mountain-mist;//常用软件常规字体颜色
+$personal-settings-light-bg:$color-turquoise; //个人设置高亮背景色
+

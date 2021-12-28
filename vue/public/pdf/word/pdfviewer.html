@@ -1,0 +1,291 @@
+<html>
+    <head>
+    <meta name="renderer" content="webkit">
+    <meta content="always" name="referrer">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="shortcut icon" type="images/x-icon" href="../../good/images/logo/logo32x32.ico" media="screen" />
+    <link type="text/css" href="../../good/css/normalize/normalize.css" rel="stylesheet"/>
+    <link type="text/css" href="../../good/css/preview/preview.css" rel="stylesheet"/>
+    <link type="text/css" href="../../good/fonts/font-awesome.min.css" rel="stylesheet"/>
+    <link type="text/css" href="../../good/css/viewer/viewer.min.css"  rel="stylesheet"/>
+    
+    </head>
+    <body>
+        <div class="preview-modal">
+            <div class="preview-container">
+                <div class="preview-header">
+                    <span class="preview-header-name">
+                        <div class="icon-file"></div>
+                    </span>
+                    <span class="preview-header-model"><a id="progress" ></a></span>
+                    <span class="preview-header-action">
+						<span class="preview-action-cell activity-cover" style="display:none;">
+							模板：<select id="template"><option value="">请选择套红模板</option></select>
+                            <button id="coverButton" type="button" style="border: 1px solid #999;
+                            cursor: pointer;
+                            color: #000;
+                            padding: 2px 9px;
+                            background: #fff;
+                            border-radius: 3px;">套红</button>
+                        </span>
+                        <span class="preview-action-cell activity-print" style="display:none;">
+                            <button type="button" class="ant-btn ant-btn-ghost components-btn-nobg">
+                                <i class="fa fa-print components-icons-print"></i>
+                            </button>
+                        </span>
+                        <span class="preview-action-cell activity-edit" style="display:none;">
+                            <button type="button" class="ant-btn ant-btn-ghost components-btn-nobg">
+                                <i class="fa fa-pencil components-icons-edit"></i>
+                            </button>
+                        </span>
+                        <span class="preview-action-cell  activity-download">
+                            <button type="button" href="../../../uploads/message/2016/11e6-943f-718ee720-8e52-a55b2b26ef01.jpg" download="123.jpg" class="ant-btn ant-btn-ghost components-btn-nobg">
+                                <i class="fa fa-download components-icons-download"></i>
+                            </button>
+                        </span>
+                        <span class="preview-action-cell">
+                            <button type="button" class="ant-btn ant-btn-ghost components-btn-nobg">
+                                <i class="fa fa-times components-icons-close "></i>
+                            </button>
+                        </span>
+                    </span>
+                </div>
+                <div class="preview-body-container">
+                    <div class="preview-content">
+                        <iframe class="preview-content-iframe" scrolling="no" style="border: 0; width: 100%; height: 100%;" src=""></iframe>
+                        <div class="preview-content-picture" style="display:none">
+                            <img src="" />
+                        </div>
+                        <div class="preview-content-unknown" style="display:none">
+                            <div class="preview-content-icon"><i class="fa fa-plane"></i></div>
+                            <div class="preview-content-name">该文件无法查看</div>
+                        </div>
+                    </div>
+                    <div class="preview-activity">
+                        <div class="preview-activity-header">文档属性</div>
+                        <div class="preview-activity-body ">
+                            <ul class="preview-activity-list">
+                                <li class="preview-activity-item"></li>
+                            </ul>
+                        </div>
+                        <div class="preview-activity-footer "></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+    //消息组件对象
+    var OBPM = {};
+    </script>
+    <script src="word/require.min.js"></script>
+    <script src="word/require.config.js"></script>
+    <script src="word/jquery.min.js"></script> 
+    <script src="word/viewer.min.js"></script>
+    <script src="word/tray.js"></script>
+    <script>
+        require(["common"], function (Common) {
+            //文件套红
+            $("#coverButton").click(function(){
+                var $this = $(this);
+                var templateFile = $("#template").val();
+                if(!templateFile){
+                    windowTop.Common.MESSAGE.showError("请先选择套红模板！");
+                    return false;
+                } else {
+                    var text = $("#progress").text();
+                    if(!text || (text && text.indexOf('文档已更新！') > -1)){
+                        $.ajax({
+                            type : 'get',
+                            async : false,
+                            dataType:"text",//返回值类型
+                            url : encodeURI(contextPath +'/portal/dynaform/document/cover?templateFile='+ templateFile + "&sourceFile=" + path),
+                            success : function(result) {
+                                if(result == 'ok'){
+								    windowTop.Common.MESSAGE.showSuccess(this.$t('success'));
+                                    setTimeout(function(){
+                                        $(".preview-body-container").find("iframe").attr("src",previewUrl);
+                                    },2000);
+                                } else {
+                                    windowTop.Common.MESSAGE.showError(result);
+                                }
+                            }
+                        });
+                    } else {
+                        windowTop.Common.MESSAGE.showError("正在编辑文档，请稍后...");
+                    }
+                }
+            });
+        });
+    	function request(strParame) {
+    	  var args = new Object( );
+    	  var query = location.search.substring(1);
+
+    	  var pairs = query.split("&"); // Break at ampersand
+    	  for(var i = 0; i < pairs.length; i++) {
+    	    var pos = pairs[i].indexOf('=');
+    	    if (pos == -1) continue;
+    	    var argname = pairs[i].substring(0,pos);
+    	    var value = pairs[i].substring(pos+1);
+    	    value = decodeURIComponent(value);
+    	    args[argname] = value;
+    	  }
+    	  return args[strParame];
+    	}
+    </script>
+    <script type="text/javascript">
+        var trayHost = "http://127.0.0.1:9001/tray";
+        var showName = $.trim(decodeURI(request("showName")));
+        var fileType = request("fileType");
+        var fullPath = request("path");
+        var path = request("path");
+        var name = request("name");
+        var action = request("action");
+        var fieldId = request("fieldId");
+        var curEditUserId = request("curEditUserId");
+        var fieldItemValue = request("fieldItemValue");
+        var isOpenCloseBtn = 'false' == "false"? false:true;
+        var isShowDocName = 'false' == "false"? false:true;
+        var waterMarkSetting = request("waterMark");
+        var openWaterMark = request("openWaterMark") == 'true' ? true : false;
+        var userName = request("userName");
+        var showTrackRevisions = request("showTrackRevisions");
+        var selectEditPlug = request("selectEditPlug");
+        var previewUrl = "word/pdfjs/web/viewer.html?path="+path+"&fileName="+encodeURI(showName)+"&name="+encodeURI(name)
+                +"&openWaterMark="+openWaterMark+"&waterMark="+encodeURI(waterMarkSetting)
+                +"&t=1564481981092";
+        $(document).ready(function(){
+            $("title").html(showName);
+            var $header = $(".preview-header");
+            var $headerName = $(".preview-header").find(".preview-header-name");
+            var $container = $(".preview-body-container");
+            if(!fileType && name){
+                fileType = name.substr(name.lastIndexOf(".")).toLowerCase();
+            }
+            var _fileType;
+            switch(fileType){
+                case ".doc":
+                case ".docx":
+                case ".xls":
+                case ".xlsx":
+                case ".pdf":
+                case ".txt":
+                case ".rtf":
+                case ".et":
+                case ".ppt":
+                case ".pptx":
+                case ".dps":
+                case ".pot":
+                case ".pps":
+                case ".wps":
+                case ".dwg":
+                case ".html":
+                case ".htm":
+                    _fileType = fileType.substr(1);
+                    $container.find("iframe").attr("src",previewUrl);
+                    break;
+                case ".jpg":
+                case ".jpeg":
+                case ".png":
+                case ".gif":
+                case ".bmp":
+                    _fileType = fileType.substr(1);
+                    var $picture = $container.find(".preview-content-picture");
+                    $picture.find("img").attr("src",contextPath+fullPath);
+                    $picture.viewer({
+                        inline : true,
+                        navbar : false
+                    });
+                    $picture.viewer('show');			
+                    break;	
+                default:
+                    _fileType = "unknown";
+                    $container.find("iframe").hide();
+                    $container.find(".preview-content-icon");
+                    $container.find(".preview-content-name");
+                    $container.find(".preview-content-unknown").show();
+                    break;
+            }
+            $headerName.find(">.icon-file").addClass("icon-file-"+_fileType);
+            $headerName.find(">.icon-file").css("margin","15px -15px 0 0");
+            //显示标题
+            var itemTitle = (fieldItemValue == "undefined" || fieldItemValue == undefined) ? 'word文档' : fieldItemValue;
+            var html = "";
+            html += "<span class='wordTitle' title='"+itemTitle+"'>"+itemTitle+"</span><a class='rechristenload' title='重命名'><i class='fa fa-navicon'></i></a>";
+            html += "<span class='showButton'><a class='confirmload' title='确认'><i class='fa fa-check'></i></a><a class='cancelload' title='取消'><i class='fa fa-close'></i></a></span>";
+            $headerName.append(html);
+            //点击重命名
+            $(".rechristenload").click(function(){
+                var $this = $(this);
+                $this.next().show();
+                $this.hide();
+                $this.siblings(".wordTitle").hide();
+                var inputHtml = "<input type='text' class='rechristenInput' style='width:150px'></input>";
+                $this.parent().parent().find(".wordTitle").after(inputHtml);
+                $this.parent().parent().find("input").val($this.siblings(".wordTitle").text());
+            });
+            //确认
+            $(".confirmload").click(function(){
+                var $this = $(this);
+                var inputText = $this.parent().parent().find("input");
+                if(inputText.val() == ""){
+                    alert("名称不能为空");
+                    return false;
+                }
+                inputText.remove();
+                $this.parent().parent().find(".wordTitle").html(inputText.val());
+                $this.parent().parent().find(".wordTitle").attr("title",inputText.val());
+                $this.parent().parent().find(".wordTitle").show();
+                $this.parent().hide();
+                $this.parent().prev().show();
+                $(parent.document.getElementById(fieldId)).attr("name",inputText.val());
+            });
+            //取消
+            $(".cancelload").click(function(){
+                var $this = $(this);
+                var inputText = $this.parent().parent().find("input");
+                $this.parent().parent().find(".wordTitle").show();
+                inputText.remove();
+                $this.parent().hide();
+                $this.parent().prev().show();
+            });
+            
+            //显示关闭按钮
+            if(isOpenCloseBtn){
+                $(".components-icons-close").on("click",function(){
+                    window.close();
+                })
+            }else{
+                $(".components-icons-close").parent().hide();
+            }
+            
+            //水印功能，是否开启打印时添加水印
+            if(openWaterMark == true && waterMarkSetting != null && waterMarkSetting != undefined && waterMarkSetting != "" && waterMarkSetting != "null"){ 
+                var setting  = JSON.parse(waterMarkSetting);
+                if(setting.type != null && setting.type.indexOf("print")>-1){ //显示水印功能
+                    //如果开启打印时添加水印，则显示打印按钮
+					//如果开启打印时添加水印，则显示打印按钮
+                    var isTrunk = sessionStorage.getItem("isTrunk");
+                    let path = ''
+                    if(isTrunk == 'true') { //5.0
+                        path = staticContextPath;
+                    }else {
+                        path = contextPath;
+                    }
+                    $(".activity-print").show().on("click",function(){
+                        var printUrl = path + "/portal/good/html/printer.html?"
+                                + "path=" + fullPath + "&filename=" + showName + "&filepath=" + fullPath
+                                + "&waterMarkSetting=" + encodeURI(waterMarkSetting);
+                        window.open(printUrl);
+                    });
+                }
+            }
+            
+            
+        });
+    </script>
+    </html>
+    
+    

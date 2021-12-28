@@ -1,0 +1,133 @@
+{
+  "km":{
+      "appId": "km",
+      "data":[
+          {
+              "appId": "km",
+              "id": "searchFile",
+              "newIco":{
+                      "icon": "./../../../kms/kms/imgs/1.png",
+                      "icontype": "img"
+                  },
+              "name": "资料检索",
+              "stableUrl": "./../../../kms/kmspc/index.html#searchFile",
+              "trunkUrl": "./../../../static/kms/kmspc/index.html#searchFile",
+              "linkType": "km"
+          },
+          {
+              "appId": "km",
+              "id": "personKm",
+              "newIco":{
+                      "icon": "./../../../kms/kms/imgs/2.png",
+                      "icontype": "img"
+                  },
+              "name": "员工",
+              "stableUrl": "./../../../kms/kmspc/index.html#/personKm",
+              "trunkUrl": "./../../../static/kms/kmspc/index.html#/personKm",
+              "linkType": "km"
+          },
+          {
+              "appId": "km",
+              "id": "departKm",
+              "newIco":{
+                      "icon": "./../../../kms/kms/imgs/3.png",
+                      "icontype": "img"
+                  },
+              "name": "部门",
+              "stableUrl": "./../../../kms/kmspc/index.html#/departmentKm",
+              "trunkUrl": "./../../../static/kms/kmspc/index.html#/departmentKm",
+              "linkType": "km"
+          },
+          {
+              "appId": "km",
+              "id": "teamKm",
+              "newIco":{
+                  "icon": "./../../../kms/kms/imgs/4.png",
+                  "icontype": "img"
+              },
+              "name": "团队",
+              "stableUrl": "./../../../kms/kmspc/index.html#teamKm",
+              "trunkUrl": "./../../../static/kms/kmspc/index.html#teamKm",
+              "linkType": "km"
+          },
+          {
+              "appId": "km",
+              "id": "committee",
+              "newIco":{
+                  "icon": "./../../../kms/kms/imgs/5.png",
+                  "icontype": "img"
+              },
+              "name": "知识专题",
+              "stableUrl": "./../../../kms/kmspc/index.html#knowledgeMap",
+              "trunkUrl": "./../../../static/kms/kmspc/index.html#knowledgeMap",
+              "linkType": "km"
+          },
+          {
+              "appId": "km",
+              "id": "admin",
+              "newIco":{
+                      "icon": "./../../../kms/kms/imgs/6.png",
+                      "icontype": "img"
+                  },
+              "name": "管理员入口",
+              "stableUrl": "./../../../kms/kmspc/index.html#admin",
+              "trunkUrl": "./../../../static/kms/kmspc/index.html#admin",
+              "linkType": "km"
+          }
+      ]
+  },
+  "pm":{
+      "appId": "pm",
+      "data":[
+          {
+              "appId": "pm",
+              "id": "tabs_pm_task",
+              "newIco":{
+                      "icon": "/portal/H5/resource/images/icon_menu/icon_menu_pm_01.png",
+                      "icontype": "img"
+                  },
+              "name": "我的任务",
+              "url": "../../pm/h5-task.jsp#task",
+              "linkType": "pm"
+          },
+          {
+              "appId": "pm",
+              "id": "tabs_pm_project",
+              "newIco":{
+                      "icon": "/portal/H5/resource/images/icon_menu/icon_menu_pm_02.png",
+                      "icontype": "img"
+                  },
+              "name": "项目",
+              "url": "../../pm/h5-task.jsp#project",
+              "linkType": "pm"
+          }
+      ]
+  },
+  "qm":{
+      "appId": "qm",
+      "data":[
+          {
+              "appId": "qm",
+              "id": "tabs_qm_homepage",
+              "newIco":{
+                      "icon": "/portal/H5/resource/images/icon_menu/icon_menu_qm_01.png",
+                      "icontype": "img"
+                  },
+              "name": "问卷首页",
+              "url": "../../../qms/qm/answer/index.jsp",
+              "linkType": "qm"
+          },
+          {
+              "appId": "qm",
+              "id": "tabs_qm_center",
+              "newIco":{
+                      "icon": "/portal/H5/resource/images/icon_menu/icon_menu_qm_02.png",
+                      "icontype": "img"
+                  },
+              "name": "问卷中心",
+              "url": "../../../qms/qm/questionnaire/list.action",
+              "linkType": "qm"
+          }
+      ]
+  }
+}

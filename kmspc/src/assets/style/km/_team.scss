@@ -1,0 +1,201 @@
+.teamKm{
+  background: #fff;
+  .search-bar{
+    margin: 0 16px;
+    .grid-content{
+      margin: 8px 0;
+      .control-label{
+        font-size: 14px;
+        margin: 0 8px;
+      }
+      .input-group{
+        width: 180px;
+      }
+    }
+  }
+  .create-bar{
+    margin: 0 16px;
+    .el-switch{
+      display: inline-block;
+      margin: 0 16px;
+    }
+  }
+  .team-list{
+    margin: 0 12px;
+    .el-table__body{
+      .teamKmName:hover{
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.stage-km{
+  .card{
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 0.15rem;
+    border: none;
+    background: #fff;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    .card-header{
+      background-color: #fff;
+      padding: 0.5rem 2.2rem;
+      box-shadow: none;
+      margin: 0;
+      border-bottom: 1px solid transparent;
+      height: 33px;
+      z-index: 10;
+      .teamName{
+        font-size: 14px;
+        margin-right: 12px;
+      }
+      //团队订阅按钮
+      .subscription {
+        padding-left: 20px;
+      }
+      //创建阶段
+      .createStage{
+        position: fixed;
+        right: 15px;
+      }
+    }
+    .card-body.card-padding{
+      padding: 2.5rem 2.2rem;
+    }
+    .card-body{
+      background-color: #eceeef !important;
+      .breadcrumbMenu{
+        padding-top: 27px;
+        .gohistory{
+          display: inline-block;
+          color: #4287ed;
+          a:hover{
+            cursor: pointer;
+          }
+        }
+      }
+      .gutter-stage{
+        .gutter-name{
+          overflow: hidden;
+          line-height: 35px;
+          .setting-operation{
+            float: right;
+          }
+          .setting-operation{
+            display: table-cell;
+            text-align: center;
+            .el-icon-more{
+              color: #0a6ebd;
+              text-decoration: none;
+            }
+          }
+        }
+        .gutter-box {
+          padding: 16px 0px;
+          background: #ffffff;
+          border: 1px #ccc solid;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
+          ul{
+            margin: 0 8px;
+            .stageFile{
+              margin-bottom: 8px;
+              .file:hover{
+                cursor: pointer;
+              }
+            }
+            
+          }
+          .showMore{
+            text-align: center;
+          }
+        } 
+      }
+    }
+    .stage-details{
+      .stage-list{
+        .el-table{
+          .el-table__body{
+            .el-table__row:hover{
+              .operation{
+                display: block;
+              }
+              .file-name:hover{
+                cursor: pointer;
+              }
+            }
+            .el-table__row{
+              .operation{
+                display: none;
+              }
+            }
+            .label-category{
+              display: flex;
+            }
+          }
+        }
+      }
+      .stage-upload{
+        display: flex;
+        margin: 12px 0;
+        .file-uploader{
+          margin-right: 12px;
+        }
+      }
+      .comments{
+        .comments-list > li{
+          position: relative;
+          align-content: center;
+          border-bottom: 1px #F1F1F1 dashed;
+          .commentDetele{
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 5px 10px;
+            color: #9E9E9E;
+            font-weight: bold;
+            cursor: pointer;
+          }
+          .top{
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            .avatar{
+              width: 38px;
+              color: #fff;
+              text-align: center;
+              line-height: 38px;
+              font-size: 12px;
+              border-radius: 4px;
+              background: #428bcb;
+              height: 38px;
+              margin: 10px;
+            }
+            .name-date{
+              flex: 1;
+              .name{
+                margin: 10px 10px 2px 0;
+              }
+            }
+          }
+          .content{
+            white-space: normal;
+            margin: 0 10px 10px;
+          }
+        }
+      }
+    }
+    
+  }
+}

@@ -1,0 +1,212 @@
+.admin h1{
+    margin: 0;
+    padding-top: 16px;
+}
+.admin .admin-title{
+    text-align: center;
+}
+.admin .admin-content {
+    width: 70%;
+    margin: 2.5rem auto 0;
+}
+.icon1{
+    background: url(../../assets/images/icon1.png) no-repeat center;
+}
+.icon2{
+    background: url(../../assets/images/icon2.png) no-repeat center;
+}
+.icon3{
+    background: url(../../assets/images/icon3.png) no-repeat center;
+}
+.admin .manage-top .icon{
+    width: 62px;
+    height: 58px;
+    margin: 0px auto;
+}
+.manage-top {
+    padding-top: 25px;
+    padding-bottom: 15px;
+}
+.company-km,
+.department-km,
+.tag-km{
+    width: 200px;
+    margin: 0 auto;
+}
+.company-km .manage-top {
+    background: #77B1F1;
+}
+.department-km .manage-top {
+    background: #F6A726;
+}
+.tag-km .manage-top {
+    background: #7FD421;
+}
+.manage-top .name {
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
+}
+.manage-body {
+    background: #F7F5F6;
+    height: 180px;
+    padding: 6px 0;
+}
+.manage-body.uneditSetting>div> a {
+    cursor : default;
+}
+.manage-body>div> a {
+    display: block;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    clear: both;
+    font-weight: 400;
+    color: #333;
+    padding: 10px 20px;
+    text-align: center;
+    -webkit-transition: background-color;
+    -o-transition: background-color;
+    transition: background-color;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    cursor: pointer;
+}
+.manage-body>div>a:focus,
+.manage-body>div>a:hover {
+    text-decoration: none;
+    color: #333;
+    background-color: rgba(0,0,0,.075);
+}
+.manage-body.uneditSetting > div > a {
+    cursor: default;
+}
+
+.dept-select-box{
+    .dept-tree{
+        height: 260px;
+        overflow-y: auto;
+    }
+}
+
+.roleSelect .company,
+.roleSelect .committee,
+.roleSelect .department,
+.roleSelect .employee {
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.roleSelect .company::before{
+    content:url(../../assets/images/role-icon1.png);
+}
+.roleSelect .department::before{
+    content:url(../../assets/images/role-icon2.png);
+}
+.roleSelect .committee::before{
+    content:url(../../assets/images/role-icon4.png);
+}
+.roleSelect .employee::before{
+    content:url(../../assets/images/role-icon3.png);
+}
+.dialog_footer {
+    text-align: right;
+    padding: 10px 20px;
+    margin-bottom: -20px;
+}
+
+//报表
+.companyReport {
+    .report-content{
+        .report-department{
+            display: flex;
+            .report-input{
+                padding-left: 10px;
+                width: 150px
+            }
+        }
+        .report-context{
+            padding-left: 10px;
+        }
+        .row-footer{
+            padding-top: 20px;
+            .repor-time{
+                display: flex;
+                width: 500px;
+                .time-width{
+                    width: 340px;
+                }
+            }
+        }
+    }
+    .searchResult{
+        .resultNum{
+            .colorNumber{
+                color: red;
+            }
+        }
+    }
+}
+.deptReport {
+    .report-content{
+        .report-context{
+            padding-left: 10px;
+        }
+        .row-footer{
+            padding-top: 20px;
+            .repor-time{
+                display: flex;
+                width: 500px;
+                .time-width{
+                    width: 340px;
+                }
+            }
+        }
+    }
+    .searchResult{
+        .resultNum{
+            .colorNumber{
+                color: red;
+            }
+        }
+    }
+}
+
+//标签类别
+.admin{
+    .label-category{
+        .el-table{
+            a:hover{
+                cursor: pointer;
+            }
+        }
+        
+    }
+    .el-tag{
+        margin-top: 10px;
+    }
+    .el-tag+.el-tag{
+        margin-left: 10px;
+    }
+}
+
+//水印设置
+.watermark{
+    .water{
+        .waterText{
+            padding-right: 20px;
+        }
+    }
+    .water-content{
+        padding-top: 8px;
+        .water-row{
+            padding-bottom: 8px;
+            .water-checked{
+                padding-right: 5px;
+            }
+        }
+        .textare{
+            width: 450px;
+        }
+    }
+}

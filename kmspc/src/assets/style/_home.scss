@@ -1,0 +1,452 @@
+.homepage {
+  height: 100%;
+  #myapp {
+    overflow: auto;
+    height: calc(100% - 33px);
+    //内容
+    .content {
+      height: 100%;
+      display: flex;
+      padding-left: 27px;
+      padding-right: 27px;
+      background: #fff;
+      .content-left {
+        width: 66%;
+        height: 100%;
+        padding: 10px;
+        margin-left: 30px;
+        //知识文档入口
+        .content-search {
+          height: 40%;
+          background: #fff;
+          padding-bottom: 24px;
+          .content-title_search{
+            background-color:#4795E7;
+            margin-bottom: 20px;
+            border-radius: 8px 8px 0 0;
+          }
+          .grid-content {
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            .logo {
+              height: 59px;
+            }
+            .logo-heard {
+              padding-left: 10px;
+              .logo-title {
+                width:273px;
+                height:37px;
+                font-size:35px;
+                font-family:PangMenZhengDao;
+                font-weight:bold;
+                color:#424045;
+              }
+              .logo-title-en {
+                width:515px;
+                height:37px;
+                font-size:25px;
+                font-family:PangMenZhengDao;
+                font-weight:bold;
+                color:rgba(103,113,123,1);
+              }
+
+
+              .logo-endTitle {
+                padding-top: 10px;
+                width:273px;
+                height:18px;
+                font-size:10px;
+                transform: scale(1);
+                font-family:Microsoft YaHei;
+                font-weight:bold;
+                color:rgba(103,113,123,1);
+              }
+            }
+          }
+          .grid-search {
+            padding: 10px 10px 20px 43px;
+            width: 90%;
+            // padding-left: 43px;
+            // padding-bottom:20px;
+            .el-input__icon {
+              width: 61px;
+            }
+            .el-input__suffix-inner > .el-input__icon {
+              height: auto;
+            }
+            .icon-search{
+              margin-top: 10px;
+              background: #E4A437;
+              border-radius: 0 5px 5px 0;
+              color: #fff;
+            }
+          }
+          .card-row {
+            display: flex;
+           
+            .cardIcon {
+              text-align: center;
+              cursor: pointer;
+              .imgContent {
+                margin-left: 3px;
+                width: 45px;
+                vertical-align: middle;
+                border-radius: 50%;
+              }
+              .card-name {
+                color: #000000;
+                margin-left: 9px;
+                margin-top: 10px;
+                margin-right: 5px;
+                font-size: 14px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+        //最新文档
+        .content-new {
+          min-height: 30%;
+          background: #fff;
+          margin-top: 10px;
+          .new-heard {
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            .new-title {
+              font-size: 15px;
+              font-weight: 600;
+              padding-left: 5px;
+            }
+            .more {
+              color: #587890;
+              cursor: pointer;
+            }
+          }
+          .new-content {
+            table {
+              tr>td:first-child{
+                width:8px;
+                height:15px;
+                font-size:14px;
+                font-family:Impact;
+                font-weight:400;
+                color:rgba(204,204,204,1);
+                line-height:20px;
+              }
+
+              tr>td:nth-child(2){
+                cursor: pointer;
+              }
+             .el-table__row:nth-child(1) .el-table_1_column_1{
+               color: #DA7D5C;
+              }
+              .el-table__row:nth-child(2) .el-table_1_column_1{
+               color: #8AAAE5;
+              }
+              .el-table__row:nth-child(3) .el-table_1_column_1{
+                color: #65A592;
+               }
+            }
+          }
+        }
+        //最热文档
+        .content-hot {
+          min-height: 30%;
+          background: #fff;
+          margin-top: 10px;
+          .hot-heard {
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            .hot-title {
+              font-size: 15px;
+              font-weight: 600;
+              padding-left: 5px;
+            }
+            .more {
+              color: #587890;
+              cursor: pointer;
+            }
+          }
+          .hot-content {
+            table {
+              tr>td:first-child{
+                width:8px;
+                height:15px;
+                font-size:14px;
+                font-family:Impact;
+                font-weight:400;
+                color:rgba(204,204,204,1);
+                line-height:20px;
+              }
+              tr>td:nth-child(2){
+                cursor: pointer;
+              }
+              .el-table__row:nth-child(1) .el-table_2_column_5{
+                color: #DA7D5C;
+               }
+               .el-table__row:nth-child(2) .el-table_2_column_5{
+                color: #8AAAE5;
+               }
+               .el-table__row:nth-child(3) .el-table_2_column_5{
+                 color: #65A592;
+                }
+            }
+          }
+        }
+      }
+      .content-right {
+        width: 25%;
+        height: 100%;
+        padding-top: 10px;
+        background: #F5F6FA;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        .content-upload {
+          background: #F5F6FA;
+          padding-top: 7px;
+          width: 100%;
+          .upload-heard {
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 10px;
+          }
+          .upload-mytotal {
+            width: 100%;
+            margin-bottom: 4px;
+            .upload-row {
+              display: flex;
+              justify-content: center;
+              width: 100%;
+              .upload-num {
+                justify-content: center;
+                display: flex;
+                padding: 5px 20px;
+                padding-bottom: 0;
+                border: 1px solid #eee;
+                font-weight: 600;
+                font-size:28px;
+                font-family:DINAlternate;
+                font-weight:bold;
+                color:#0c489E;
+                border-radius: 5px 5px 0 0;
+                background-image: linear-gradient(#B6D0EB,#fff);
+                margin: 0 5px;
+              }
+            }
+          }
+          .upload-total {
+            display: flex;
+            padding: 10px;
+            justify-content: center;
+            .upload-num {
+              display: flex;
+              border: 1px solid #E5E5E5;
+              padding: 5px 5px 10px;
+              background-color: #fff;
+              .department {
+                // border-right: 1px solid #E5E5E5;
+                // padding-right: 10px;
+                text-align: center;
+                .num {
+                  font-size: 16px;
+                  width:76px;
+                  height: 30px;
+                  font-family:DINAlternate;
+                  font-weight:bold;
+                  color:#0c489E;
+                  line-height:35px;
+                }
+                .num-en{
+                  font-size: 16px;
+                  height: 30px;
+                  font-family:DINAlternate;
+                  font-weight:bold;
+                  color:rgba(59,124,227,1);
+                  line-height:35px;   
+                  
+                }
+                .team-num {
+                  padding-left: 5px;
+                }
+                .text{
+                  width: 76px;
+                  height: 7px;
+                  text-align: center;
+                  font-size: 7px;
+                  font-family: Microsoft YaHei;
+                  font-weight: 400;
+                  color: rgba(102,102,102,1);
+                  line-height: 14px;
+                }
+                .text-en{
+
+                  text-align: center;
+                  font-size: 7px;
+                  font-family: Microsoft YaHei;
+                  font-weight: 400;
+                  color: rgba(102,102,102,1);
+                  line-height: 14px;
+                  padding:5px;
+                }
+              }
+              .teamDoc{
+                padding-left: 9px;
+                padding-right: 12px;
+              }
+              .pendingBorder{
+                border: none;
+                padding-left: 9px;
+                padding-right: 1px;
+              }
+            }
+          }
+          .uploader {
+            text-align: center;
+            padding-bottom: 10px;
+            .upload-demo{
+              .el-button{
+                font-size: 14px;
+                border-radius: 4px;
+                font-weight: 900;
+                padding:12px 60px;
+                background-color:#186EDB;
+              }  
+            }
+          }
+        }
+        // 我的日志
+        .myLog {
+          // height: 30%;
+          background: #F5F6FA;
+          margin-top: 10px;
+          width: 100%;
+          .log-heard {
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            .log-title {
+              font-size: 15px;
+              font-weight: 600;
+              padding-left: 5px;
+            }
+            .more {
+              color: #909399;
+              cursor: pointer;
+            }
+          }
+          .log-content {
+            table{
+              tr{
+                background-color:#F5F6FA;
+              }
+              tr>td{
+                font-size:12px;
+                font-family:Microsoft YaHei;
+                font-weight:400;
+                color:rgba(51,51,51,1);
+                line-height:10px;
+              }
+              .el-table_3_column_9{
+                font-weight:600;
+                .cell::before { // 小圆点在这里
+                  content: '';
+                  // position: absolute;
+                  // left: 16px;
+                  // top: 45%;
+                  // border: 1px solid #000000;
+                  background-color: #35B890;
+                  display: inline-block; // 此句为css样式展示重点🏁
+                  width: 8px;
+                  height: 8px;
+                  border-radius: 50%;
+                  align-items: center;
+                  margin-bottom:1px;
+                  margin-right: 4px;
+                  // margin-right: 12px;
+                }
+              }
+
+            }
+          }
+        }
+        // 我的排名
+        .ranking {
+          // height: 30%;
+          background: #F5F6FA;
+          margin-top: 10px;
+          padding-bottom: 10px;
+          width: 100%;
+          .ranking-heard {
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            .ranking-title {
+              font-size: 15px;
+              font-weight: 600;
+              padding-left: 5px;
+            }
+            .more {
+              color: #909399;
+              cursor: pointer;
+            }
+          }
+          .ranking-content {
+            .rankingList {
+              display: flex;
+              justify-content: space-around;
+              .rankingList_show {
+                text-align: center;
+                background-color: #fff;
+                .rankingList_img {
+                  .img{
+                    width: 110px;
+                    height: 83px;
+                  }
+                }
+                .rankingList_user{
+                  .user{
+                    width: 45px;
+                    vertical-align: middle;
+                    border-radius: 50%;
+                  }
+                }
+                .rankingList_name{
+                  height:14px;
+                  font-size:16px;
+                  font-family:Microsoft YaHei;
+                  font-weight:400;
+                  color:rgba(51,51,51,1);
+                  line-height:13px;
+                  padding-top: 5px;
+                }
+                .rankingList_total{
+                  height:12px;
+                  font-size:12px;
+                  font-family:Microsoft YaHei;
+                  font-weight:400;
+                  color:rgba(102,102,102,1);
+                  line-height:13px;
+                  padding-top: 5px;
+                }
+              }
+              .two {
+                padding-top: 20px;
+              }
+              .three {
+                padding-top: 30px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
